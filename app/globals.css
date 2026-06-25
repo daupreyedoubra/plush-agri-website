@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-primary: #1F4D36;
+  --color-secondary: #5E8B3D;
+  --color-trust: #163A70;
+  --color-accent: #DCE8D7;
+  --color-neutral: #F6F2E8;
+
+  /* Typography */
+  --font-sans: var(--font-poppins), sans-serif;
+
+  /* Max content width */
+  --max-width-content: 1280px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+/* Heading balance — prevents orphaned single words on last line */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* Display headline tracking — tight spacing for large editorial type */
+h1, h2 {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Accessible focus rings — visible only for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #5E8B3D;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Tabular numbers — keeps counter digits fixed-width so they don't shift */
+.num-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* CTA button press feedback — active state scale for all primary CTAs */
+.cta-btn {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.25, 0, 0, 1);
+}
+.cta-btn:active {
+  transform: scale(0.97);
+}
+
+/* Skip to content — visually hidden until focused by keyboard */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.5rem 1rem;
+  background: #1F4D36;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: top 150ms ease;
+}
+.skip-to-content:focus {
+  top: 1rem;
+}

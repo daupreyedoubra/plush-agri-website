@@ -1,0 +1,146 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/impact", label: "Impact" },
+  { href: "/partnerships", label: "Partnerships" },
+  { href: "/resources", label: "Resources" },
+  { href: "/contact", label: "Contact" },
+];
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  return (
+    <nav
+      className="sticky top-0 z-50 bg-white border-t border-b border-accent"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" aria-label="Plush Agri Solutions Home">
+          <Image
+            src="/Plush_Agri_Solutions_LOGO_PNG-01.png"
+            alt="Plush Agri Solutions"
+            width={180}
+            height={48}
+            priority
+            className="h-12 w-auto object-contain"
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`relative text-sm font-medium transition-colors pb-1 ${
+                pathname === link.href
+                  ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full"
+                  : "text-gray-600 hover:text-primary"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className="cta-btn bg-primary text-white text-sm font-semibold px-8 h-12 flex items-center hover:bg-primary/90"
+            style={{ borderRadius: "4px" }}
+          >
+            Talk to a Vet
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="lg:hidden p-2 -mr-2"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation menu"
+        >
+          <span className="sr-only">Menu</span>
+          <div className="w-6 flex flex-col gap-1.5">
+            <span
+              className={`block h-0.5 bg-gray-800 transition-all duration-300 ${
+                isOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 bg-gray-800 transition-all duration-300 ${
+                isOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 bg-gray-800 transition-all duration-300 ${
+                isOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="lg:hidden overflow-hidden bg-white border-t border-accent"
+          >
+            <div className="px-6 py-6 flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`py-3 text-base border-b border-accent/50 transition-colors ${
+                    pathname === link.href
+                      ? "text-primary font-semibold"
+                      : "text-gray-700 font-medium hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="cta-btn mt-4 bg-primary text-white text-sm font-semibold px-6 h-12 flex items-center justify-center hover:bg-primary/90"
+                style={{ borderRadius: "4px" }}
+              >
+                Talk to a Vet
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}

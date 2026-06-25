@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Sleep -Seconds 5; try { $resp = Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 10 -UseBasicParsing; \"Status: $\\($resp.StatusCode\\) — Length: $\\($resp.Content.Length\\) chars\" } catch { \"Error: $_\" })",
+      "PowerShell(Start-Sleep -Seconds 10; try { $resp = Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 15 -UseBasicParsing; \"Status: $\\($resp.StatusCode\\)\" } catch { \"Error: $_\" })",
+      "PowerShell(New-Item *)"
+    ]
+  }
+}
