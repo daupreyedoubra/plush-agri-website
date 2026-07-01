@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
+import heroImage from "@/public/Images/hero.jpg";
 
 const fadeUp = (delay: number): Variants => ({
   hidden: { opacity: 0, y: 40 },
@@ -18,7 +19,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center">
       {/* Background Image */}
       <Image
-        src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=1920&q=85&auto=format&fit=crop"
+        src={heroImage}
         alt="Cattle herd on an open farm in Northern Nigeria"
         fill
         className="object-cover object-center"
