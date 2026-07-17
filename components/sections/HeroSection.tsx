@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import heroImage from "@/public/Images/hero.jpg";
+import heroImage from "@/public/images/hero.jpg";
 
 const fadeUp = (delay: number): Variants => ({
   hidden: { opacity: 0, y: 40 },
