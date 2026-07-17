@@ -39,3 +39,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# non-project: installed Claude Code skill packages (not authored here)
+.claude/skills/*/
+.impeccable/
+.mengto-skills/
+
+# non-project: stray source images at repo root, unused by the app
+# (duplicates already live in public/Images or were never wired in)
+/Hero Page.jpg
+/abubakar-balogun-2YqtSxjCS9Y-unsplash.jpg
+/fatima-yusuf-Z2w0Ix_FJP0-unsplash.jpg
+/gabriel-jimenez-jin4W1HqgL4-unsplash.jpg
+/gonzalo-facello-bSDNr80STbU-unsplash.jpg
+/habila-mazawaje-TyxpYdghFd0-unsplash.jpg
+/jason-grant-oQCqDGMtFjs-unsplash.jpg
+/jim-0Zus9xISPj0-unsplash.jpg
+/jorien-loman-00YD5QLyaGU-unsplash.jpg
+/kseniya-konovets-rB734RW4xdE-unsplash.jpg
+/olena-somak_ua-JMgHLbSn0Ss-unsplash.jpg
+/steven-weeks-DUPFowqI6oI-unsplash.jpg
