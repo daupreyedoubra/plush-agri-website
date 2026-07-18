@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import LocationMap from "@/components/ui/LocationMap";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -77,6 +78,12 @@ export default function ContactInfoSection() {
                   <p className="text-xs font-semibold tracking-wide uppercase text-primary mb-1">Location</p>
                   <p className="text-base text-gray-700">Kaduna State, Northern Nigeria</p>
                 </div>
+              </div>
+
+              {/* Find us */}
+              <div>
+                <p className="text-xs font-semibold tracking-wide uppercase text-primary mb-3">Find Us</p>
+                <LocationMap />
               </div>
 
               {/* Social links */}

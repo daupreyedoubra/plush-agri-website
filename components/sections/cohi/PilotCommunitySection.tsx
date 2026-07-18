@@ -2,15 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import LocationMap from "@/components/ui/LocationMap";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 const paragraphs = [
-  "We chose Danhonu 1, Chikun LGA, because it is a livestock-dependent community with no reliable access to veterinary care, exactly the gap Plush Agri Solutions exists to close.",
-  "Since our brand launch in May 2026, we have run community engagement sessions, completed farm visits with local herders, and delivered One Health education in the local school.",
-  "Farmers under our advisory now have a direct line to a vet for the first time, and the trust built in Danhonu 1 is the model for how we enter every new community.",
-  "What comes next is expansion: taking the same community-first approach to more livestock-dependent communities across Kaduna State.",
+  "COHI is anchored in Danhonu 1, Chikun LGA. We chose it because it is a livestock-dependent community with no reliable access to veterinary care, exactly the gap this initiative exists to close.",
+  "Since launch, COHI has run community dialogue sessions with local leaders, completed farm visits with herders, and delivered One Health education in the local school.",
+  "Farmers under our advisory now have a direct line to a vet for the first time. Danhonu 1 is the model we carry into every community COHI reaches next.",
 ];
 
 const metrics = [
@@ -21,12 +19,12 @@ const metrics = [
 ];
 
 const photos = [
-  { src: "/images/_MG_2908.jpg", alt: "Plush Agri Solutions community engagement session in Danhonu 1" },
-  { src: "/images/_MG_2918.jpg", alt: "Plush Agri Solutions input distribution to a farmer in Danhonu 1" },
-  { src: "/images/_MG_2930.jpg", alt: "Plush Agri Solutions team member leading a farmer training session" },
+  { src: "/images/cohi-school-05.jpeg", alt: "Plush Agri Solutions team with pupils and staff at a One Health education session in Danhonu 1" },
+  { src: "/images/_MG_2860.jpg", alt: "Community dialogue session with farmers in Danhonu 1" },
+  { src: "/images/_MG_2944.jpg", alt: "Plush Agri Solutions branded input handed to a farmer in Danhonu 1" },
 ];
 
-export default function DanhonuPilotSection() {
+export default function PilotCommunitySection() {
   return (
     <section className="bg-cream py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
@@ -37,7 +35,7 @@ export default function DanhonuPilotSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          Our Pilot
+          Pilot & Founding Community
         </motion.p>
 
         <motion.h2
@@ -47,7 +45,7 @@ export default function DanhonuPilotSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
-          We started where the need is real: Danhonu 1.
+          Danhonu 1, Chikun LGA.
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
@@ -81,15 +79,9 @@ export default function DanhonuPilotSection() {
             <div className="relative card overflow-hidden aspect-square">
               <Image src={photos[2].src} alt={photos[2].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
             </div>
-
-            <div className="col-span-2 flex flex-col items-start gap-2 mt-2">
-              <p className="label">This is where we work</p>
-              <LocationMap />
-            </div>
           </motion.div>
         </div>
 
-        {/* Metrics strip */}
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-12 border-t border-accent"
           initial={{ opacity: 0, y: 20 }}
