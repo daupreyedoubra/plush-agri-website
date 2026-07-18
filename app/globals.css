@@ -15,6 +15,17 @@
   --color-neutral: #F5F0E4;    /* Cream — default page background */
   --color-bright: #7AC143;     /* Bright green — accent ONLY: CTAs, highlights, one stat card */
 
+  /* Same 5 colors again under their brief names — new sections (redesign
+     2026 home page onward) reference these directly instead of the legacy
+     primary/secondary/trust/neutral names above, which stay only for the
+     ~40 not-yet-rebuilt components. Bright green is the CTA/button color —
+     never navy/blue. */
+  --color-navy: #16365C;
+  --color-bright-green: #7AC143;
+  --color-olive: #5C8A3C;
+  --color-dark-green: #1F4A30;
+  --color-cream: #F5F0E4;
+
   /* Typography */
   --font-sans: var(--font-figtree), sans-serif;   /* Body: Figtree, 400/500 */
   --font-heading: var(--font-poppins), sans-serif; /* Headings: Poppins, 600/700 only */
@@ -69,7 +80,7 @@ h1 {
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-secondary);
+  color: var(--color-olive);
 }
 
 /* Card surface (brief §2 Spacing & shape) */
@@ -82,6 +93,35 @@ h1 {
 .btn-pill {
   border-radius: 999px;
   padding: 14px 28px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 200ms cubic-bezier(0.25, 0, 0, 1), transform 200ms cubic-bezier(0.25, 0, 0, 1);
+}
+.btn-pill:active {
+  transform: scale(0.97);
+}
+
+/* Primary CTA: bright green, never navy/blue (brief §2 Colors) */
+.btn-primary {
+  background-color: var(--color-bright-green);
+  color: #FFFFFF;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Secondary CTA: white outline, for use on dark/photo backgrounds */
+.btn-outline {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+}
+.btn-outline:hover {
+  border-color: #FFFFFF;
 }
 
 /* Accessible focus rings — visible only for keyboard navigation */

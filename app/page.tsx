@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
-import SolutionSection from "@/components/sections/SolutionSection";
-import ValuesSection from "@/components/sections/ValuesSection";
-import AudienceSection from "@/components/sections/AudienceSection";
-import ImpactSection from "@/components/sections/ImpactSection";
-import PartnershipBannerSection from "@/components/sections/PartnershipBannerSection";
-import FinalCTASection from "@/components/sections/FinalCTASection";
+import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
+import HowWeWorkSection from "@/components/sections/HowWeWorkSection";
+import DanhonuPilotSection from "@/components/sections/DanhonuPilotSection";
+import COHIBannerSection from "@/components/sections/COHIBannerSection";
+import TwoDoorSection from "@/components/sections/TwoDoorSection";
 
 export const metadata: Metadata = {
   title: "Plush Agri Solutions | Veterinary and Agricultural Advisory Services, Nigeria",
@@ -28,12 +27,11 @@ export default function Home() {
     <>
       <HeroSection />
       <ProblemSection />
-      <SolutionSection />
-      <ValuesSection />
-      <AudienceSection />
-      <ImpactSection />
-      <PartnershipBannerSection />
-      <FinalCTASection />
+      <WhatWeDoSection />
+      <HowWeWorkSection />
+      <DanhonuPilotSection />
+      <COHIBannerSection />
+      <TwoDoorSection />
     </>
   );
 }

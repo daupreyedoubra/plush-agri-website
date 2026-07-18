@@ -5,31 +5,30 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/impact", label: "Impact" },
-  { href: "/partnerships", label: "Partnerships" },
-  { href: "/resources", label: "Resources" },
+  { href: "/cohi", label: "COHI" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-dark-green text-white">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo + Tagline */}
           <div className="lg:col-span-2">
             <Image
-              src="/Plush_Agri_Solutions_LOGO_PNG-06.png"
+              src="/images/logo-white.png"
               alt="Plush Agri Solutions"
               width={200}
               height={80}
-              className="mb-6 h-20 w-auto object-contain"
+              className="mb-6 h-16 w-auto object-contain"
               style={{ minWidth: "160px" }}
             />
             <p className="text-white/90 text-base font-medium mb-2">
-              Built with farmers. Proven in the field.
+              Practical Solutions for Real Farm Problems.
             </p>
-            <p className="text-accent/60 text-sm italic">
+            <p className="text-white/60 text-sm italic">
               Tare da manoma. An tabbatar a gonar.
             </p>
           </div>
@@ -59,7 +58,7 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li>Kaduna State, Northern Nigeria</li>
+              <li>GF11 Nakadi Plaza, Millennium City, Kaduna State</li>
               <li>
                 <a
                   href="mailto:plushagrisolutions@gmail.com"
@@ -73,7 +72,7 @@ export default function Footer() {
                   href="tel:+2348033670509"
                   className="hover:text-white transition-colors"
                 >
-                  +234 803 367 0509
+                  0803 367 0509
                 </a>
               </li>
             </ul>
@@ -84,7 +83,7 @@ export default function Footer() {
               </h4>
               <div className="flex items-center gap-4">
                 <a
-                  href="https://instagram.com/plushagrisolutions"
+                  href="https://www.instagram.com/plushagrisolutions/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-white transition-colors"
@@ -95,7 +94,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://facebook.com/plushagrisolutions"
+                  href="https://www.facebook.com/Plushagrisolutions"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-white transition-colors"
@@ -106,7 +105,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com/company/plush-agri-solutions"
+                  href="https://www.linkedin.com/company/plush-agri-solutions/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-white transition-colors"
@@ -123,8 +122,8 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-sm text-white/40">
+          <p>Tare da manoma. An tabbatar a gonar.</p>
           <p>© 2026 Plush Agri Solutions. All rights reserved.</p>
-          <p>Kaduna State, Nigeria</p>
         </div>
       </div>
     </footer>

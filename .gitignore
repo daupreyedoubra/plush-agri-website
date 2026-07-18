@@ -45,6 +45,9 @@ next-env.d.ts
 .impeccable/
 .mengto-skills/
 
+# review screenshots (build output for human review, not source)
+/review/
+
 # non-project: stray source images at repo root, unused by the app
 # (duplicates already live in public/Images or were never wired in)
 /Hero Page.jpg

@@ -10,9 +10,8 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/impact", label: "Impact" },
-  { href: "/partnerships", label: "Partnerships" },
-  { href: "/resources", label: "Resources" },
+  { href: "/cohi", label: "COHI" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -37,7 +36,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="sticky top-0 z-50 bg-white border-t border-b border-accent"
+      className="sticky top-0 z-50 bg-white border-b border-accent"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -62,25 +61,21 @@ export default function Navbar() {
               href={link.href}
               className={`relative text-sm font-medium transition-colors pb-1 ${
                 pathname === link.href
-                  ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full"
-                  : "text-gray-600 hover:text-primary"
+                  ? "text-navy after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-navy after:rounded-full"
+                  : "text-gray-600 hover:text-navy"
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className="cta-btn bg-primary text-white text-sm font-semibold px-8 h-12 flex items-center hover:bg-primary/90"
-            style={{ borderRadius: "4px" }}
-          >
-            Talk to a Vet
+          <Link href="/#partner" className="btn-pill btn-primary">
+            Partner With Us
           </Link>
         </div>
 
         {/* Mobile Hamburger */}
         <button
-          className="lg:hidden p-2 -mr-2"
+          className="lg:hidden p-2 -mr-2 relative z-[60]"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
@@ -106,36 +101,35 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer — full-screen cream menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden bg-white border-t border-accent"
+            className="lg:hidden fixed inset-0 top-20 z-50 bg-cream overflow-y-auto"
           >
-            <div className="px-6 py-6 flex flex-col gap-1">
+            <div className="px-6 py-8 flex flex-col gap-1 min-h-full">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`py-3 text-base border-b border-accent/50 transition-colors ${
+                  className={`py-4 text-xl border-b border-accent/50 transition-colors ${
                     pathname === link.href
-                      ? "text-primary font-semibold"
-                      : "text-gray-700 font-medium hover:text-primary"
+                      ? "text-navy font-semibold"
+                      : "text-gray-700 font-medium hover:text-navy"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
-                href="/contact"
-                className="cta-btn mt-4 bg-primary text-white text-sm font-semibold px-6 h-12 flex items-center justify-center hover:bg-primary/90"
-                style={{ borderRadius: "4px" }}
+                href="/#partner"
+                className="btn-pill btn-primary mt-6 w-full"
               >
-                Talk to a Vet
+                Partner With Us
               </Link>
             </div>
           </motion.div>

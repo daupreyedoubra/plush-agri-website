@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const DOWN_MESSAGE =
-  "Form is temporarily down — email us at plushagrisolutions@gmail.com or WhatsApp 08087702906.";
+  "Form temporarily down — email plushagrisolutions@gmail.com or WhatsApp 08087702906.";
 
 // Basic in-memory rate limit. Resets on cold start and isn't shared across
 // serverless instances, but stops the obvious repeat-submit / script case.

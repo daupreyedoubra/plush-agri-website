@@ -24,7 +24,14 @@
       "Bash(curl -s http://localhost:3000/)",
       "Bash(curl -s http://localhost:3000/ -o /tmp/home.html)",
       "Read(//tmp/**)",
-      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0kv39xo._.css\" -o /tmp/home.css)"
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0kv39xo._.css\" -o /tmp/home.css)",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /tmp/home_body.html -w \"Home: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(npx --no-install playwright install --dry-run chromium)",
+      "Bash(node /tmp/screenshot.js)",
+      "Bash(node scripts-screenshot-tmp.js)",
+      "Bash(netstat -ano)",
+      "Bash(awk '{print $5}')"
     ]
   }
 }
