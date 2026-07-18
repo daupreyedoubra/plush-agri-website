@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import CtaButton from "@/components/ui/CtaButton";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -68,9 +69,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/#partner" className="btn-pill btn-primary">
-            Partner With Us
-          </Link>
+          <CtaButton href="/#partner">Partner With Us</CtaButton>
         </div>
 
         {/* Mobile Hamburger */}
@@ -125,12 +124,9 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/#partner"
-                className="btn-pill btn-primary mt-6 w-full"
-              >
+              <CtaButton href="/#partner" className="mt-6 w-full">
                 Partner With Us
-              </Link>
+              </CtaButton>
             </div>
           </motion.div>
         )}

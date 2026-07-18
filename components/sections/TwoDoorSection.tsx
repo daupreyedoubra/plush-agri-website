@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import CtaButton from "@/components/ui/CtaButton";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -33,12 +34,9 @@ export default function TwoDoorSection() {
               deliver community One Health programmes in Kaduna State.
             </p>
             <div className="flex flex-col items-start gap-4">
-              <a
-                href="mailto:plushagrisolutions@gmail.com"
-                className="btn-pill btn-primary"
-              >
+              <CtaButton href="mailto:plushagrisolutions@gmail.com">
                 Email Us
-              </a>
+              </CtaButton>
               <a
                 href="tel:+2348033670509"
                 className="text-white/70 hover:text-white text-sm transition-colors"
@@ -61,14 +59,9 @@ export default function TwoDoorSection() {
               Farm advisory, animal health support, and training. Hausa da
               English.
             </p>
-            <a
-              href="https://wa.me/2348087702906"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-pill btn-primary self-start"
-            >
+            <CtaButton href="https://wa.me/2348087702906" className="self-start">
               WhatsApp a Vet
-            </a>
+            </CtaButton>
           </motion.div>
         </div>
       </div>

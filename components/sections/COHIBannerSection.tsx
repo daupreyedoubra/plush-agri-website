@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import CtaButton from "@/components/ui/CtaButton";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -29,9 +29,7 @@ export default function COHIBannerSection() {
             <p className="text-white/60 text-sm italic mb-10">
               Tare da manoma. An tabbatar a gonar.
             </p>
-            <Link href="/cohi" className="btn-pill btn-primary">
-              Explore COHI
-            </Link>
+            <CtaButton href="/cohi">Explore COHI</CtaButton>
           </motion.div>
 
           <motion.div

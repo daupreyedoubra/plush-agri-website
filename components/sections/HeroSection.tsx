@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import heroImage from "@/public/images/hero.jpg";
+import CtaButton from "@/components/ui/CtaButton";
 
 const fadeUp = (delay: number): Variants => ({
   hidden: { opacity: 0, y: 40 },
@@ -63,17 +63,10 @@ export default function HeroSection() {
             animate="visible"
             variants={fadeUp(0.3)}
           >
-            <Link href="/#partner" className="btn-pill btn-primary">
-              Partner With Us
-            </Link>
-            <a
-              href="https://wa.me/2348087702906"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-pill btn-outline"
-            >
+            <CtaButton href="/#partner">Partner With Us</CtaButton>
+            <CtaButton href="https://wa.me/2348087702906" variant="outline">
               Message a Vet on WhatsApp
-            </a>
+            </CtaButton>
           </motion.div>
         </div>
       </div>
