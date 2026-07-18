@@ -8,7 +8,13 @@
       "Bash(git commit -m ' *)",
       "Bash(git checkout *)",
       "Bash(git mv *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(npx tsc *)",
+      "Bash(git push *)",
+      "Bash(git ls-remote *)",
+      "Bash(git config *)",
+      "Bash(GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND=\"ssh -o BatchMode=yes\" timeout 20 git push -u origin main)",
+      "Bash(echo \"exit:$?\")"
     ]
   }
 }

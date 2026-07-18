@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactHero from "@/components/sections/contact/ContactHero";
+import EmergencyBanner from "@/components/sections/contact/EmergencyBanner";
 import ContactInfoSection from "@/components/sections/contact/ContactInfoSection";
 import ContactFormsSection from "@/components/sections/contact/ContactFormsSection";
 
@@ -18,6 +19,7 @@ export default function ContactPage() {
   return (
     <main>
       <ContactHero />
+      <EmergencyBanner />
       <ContactInfoSection />
       <ContactFormsSection />
     </main>
