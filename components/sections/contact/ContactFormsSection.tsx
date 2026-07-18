@@ -29,30 +29,38 @@ function SuccessCard({ message }: { message: string }) {
 }
 
 // ─── General Inquiry Form ──────────────────────────────────────────────────
-type GeneralData = { name: string; email: string; phone?: string; message: string };
+type GeneralData = { name: string; email: string; phone?: string; message: string; company?: string };
+
+const DEFAULT_ERROR = "Form is temporarily down — email us at plushagrisolutions@gmail.com or WhatsApp 08087702906.";
 
 function GeneralForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [serverError, setServerError] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<GeneralData>();
 
   const onSubmit = async (data: GeneralData) => {
-    setServerError(false);
+    setServerError(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+      const json = await res.json().catch(() => ({}));
       if (res.ok) setSubmitted(true);
-      else setServerError(true);
-    } catch { setServerError(true); }
+      else setServerError(json.error || DEFAULT_ERROR);
+    } catch { setServerError(DEFAULT_ERROR); }
   };
 
   if (submitted) return <SuccessCard message="A member of the PAS team will respond to your message within 48 hours." />;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="bg-white border border-accent p-8 lg:p-12 space-y-6" noValidate>
+      {/* Honeypot: hidden from real visitors, bots that autofill every field will trip it */}
+      <div className="absolute w-px h-px overflow-hidden" style={{ clip: "rect(0,0,0,0)" }} aria-hidden="true">
+        <label htmlFor="g-company">Company</label>
+        <input id="g-company" type="text" tabIndex={-1} autoComplete="off" {...register("company")} />
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
           <label htmlFor="g-name" className={labelClass}>Full Name <span className="text-red-400">*</span></label>
@@ -82,7 +90,7 @@ function GeneralForm() {
           aria-invalid={errors.message ? "true" : "false"} />
         {errors.message && <p className={errorClass} role="alert">{errors.message.message}</p>}
       </div>
-      {serverError && <p className="text-sm text-red-500" role="alert">Something went wrong. Please email us directly at plushagrisolutions@gmail.com.</p>}
+      {serverError && <p className="text-sm text-red-500" role="alert">{serverError}</p>}
       <button type="submit" disabled={isSubmitting} className="w-full bg-primary text-white font-semibold text-sm h-12 transition-colors hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed" style={{ borderRadius: "4px" }}>
         {isSubmitting ? "Sending…" : "Send Message"}
       </button>

@@ -14,7 +14,13 @@
       "Bash(git ls-remote *)",
       "Bash(git config *)",
       "Bash(GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND=\"ssh -o BatchMode=yes\" timeout 20 git push -u origin main)",
-      "Bash(echo \"exit:$?\")"
+      "Bash(echo \"exit:$?\")",
+      "Bash(npm install *)",
+      "Bash(git check-ignore *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/contact)",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"name\":\"Test User\",\"email\":\"test@example.com\",\"message\":\"Hello there this is a test message\"}')",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"name\":\"Bot\",\"email\":\"bot@example.com\",\"message\":\"spammy message here 123456\",\"company\":\"filled\"}')"
     ]
   }
 }
