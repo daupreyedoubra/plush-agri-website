@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Figtree } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,6 +9,13 @@ const poppins = Poppins({
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-poppins",
+  display: "swap",
+});
+
+const figtree = Figtree({
+  weight: ["400", "500"],
+  subsets: ["latin"],
+  variable: "--font-figtree",
   display: "swap",
 });
 
@@ -57,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${poppins.variable} ${figtree.variable}`}>
       <body className="font-sans min-h-screen flex flex-col antialiased bg-white text-gray-900">
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <Navbar />

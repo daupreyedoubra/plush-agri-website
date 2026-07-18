@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
-  --color-primary: #1F4D36;
-  --color-secondary: #5E8B3D;
-  --color-trust: #163A70;
-  --color-accent: #DCE8D7;
-  --color-neutral: #F6F2E8;
+  /* Brand Colors — PAS Redesign 2026, brief §2 (exact hex, no substitutions).
+     Existing component classes (bg-primary, text-secondary, bg-trust,
+     border-accent, bg-neutral) are remapped to the closest brief role below
+     so the whole site picks up the locked palette immediately. Buttons,
+     cards and labels still use their pre-redesign shapes/spacing until each
+     page is rebuilt section by section — see .label/.card/.btn-pill further
+     down for the brief-exact utilities ready for that work. */
+  --color-primary: #16365C;    /* Navy — primary text on light, hero overlay, footer alt */
+  --color-secondary: #5C8A3C;  /* Olive — secondary accents, icons, small labels */
+  --color-trust: #1F4A30;      /* Dark green — deep sections, footer background */
+  --color-accent: rgb(22 54 92 / 0.12); /* Navy-tint hairline border — UI chrome only, not one of the 6 locked swatches */
+  --color-neutral: #F5F0E4;    /* Cream — default page background */
+  --color-bright: #7AC143;     /* Bright green — accent ONLY: CTAs, highlights, one stat card */
 
   /* Typography */
-  --font-sans: var(--font-poppins), sans-serif;
+  --font-sans: var(--font-figtree), sans-serif;   /* Body: Figtree, 400/500 */
+  --font-heading: var(--font-poppins), sans-serif; /* Headings: Poppins, 600/700 only */
 
   /* Max content width */
   --max-width-content: 1280px;
@@ -27,7 +35,8 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.7;
+  font-size: 1.0625rem; /* body copy: 1.05–1.125rem */
+  line-height: 1.65;
 }
 
 /* Heading balance — prevents orphaned single words on last line */
@@ -35,10 +44,44 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
+/* Headings use Poppins regardless of the body's Figtree default */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
 /* Display headline tracking — tight spacing for large editorial type */
 h1, h2 {
   letter-spacing: -0.02em;
   line-height: 1.2;
+}
+
+/* H1: brief-exact size and tight leading */
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* Small uppercase eyebrow labels (brief §2 Type) */
+.label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* Card surface (brief §2 Spacing & shape) */
+.card {
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(22, 54, 92, 0.08);
+}
+
+/* Pill button shape and padding (brief §2 Spacing & shape) */
+.btn-pill {
+  border-radius: 999px;
+  padding: 14px 28px;
 }
 
 /* Accessible focus rings — visible only for keyboard navigation */
@@ -70,7 +113,7 @@ h1, h2 {
   left: 1rem;
   z-index: 200;
   padding: 0.5rem 1rem;
-  background: #1F4D36;
+  background: var(--color-primary);
   color: white;
   font-size: 0.875rem;
   font-weight: 600;

@@ -20,7 +20,11 @@
       "Bash(npm run *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/contact)",
       "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"name\":\"Test User\",\"email\":\"test@example.com\",\"message\":\"Hello there this is a test message\"}')",
-      "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"name\":\"Bot\",\"email\":\"bot@example.com\",\"message\":\"spammy message here 123456\",\"company\":\"filled\"}')"
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"name\":\"Bot\",\"email\":\"bot@example.com\",\"message\":\"spammy message here 123456\",\"company\":\"filled\"}')",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/ -o /tmp/home.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0kv39xo._.css\" -o /tmp/home.css)"
     ]
   }
 }
