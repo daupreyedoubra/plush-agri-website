@@ -16,13 +16,7 @@ const fadeUp = (delay: number): Variants => ({
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative z-10 min-h-[78vh] flex items-center overflow-hidden"
-      style={{
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 94%)",
-        marginBottom: "-6vw",
-      }}
-    >
+    <section className="relative z-10 min-h-[78vh] flex items-center overflow-hidden">
       <Image
         src={heroImage}
         alt="Cattle at a Plush Agri Solutions farm advisory visit"
@@ -31,6 +25,26 @@ export default function HeroSection() {
         className="object-cover"
       />
       <div className="absolute inset-0 bg-navy" style={{ opacity: 0.35 }} />
+
+      {/* Curved divider: navy arcs up into the hero image, single gentle
+          concave sweep (no clip-path notch, no wavy squiggle). viewBox +
+          preserveAspectRatio keep the curve's proportions identical at
+          375px and 1440px; only the strip's own height scales with vw. */}
+      <div
+        className="absolute inset-x-0 bottom-0 z-10 h-[7vw] min-h-[36px] max-h-[90px]"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          className="block w-full h-full"
+        >
+          <path
+            d="M0,100 L0,60 Q720,15 1440,60 L1440,100 Z"
+            className="fill-navy"
+          />
+        </svg>
+      </div>
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 py-16">
         <div className="max-w-2xl">

@@ -8,10 +8,8 @@ import LocationMap from "@/components/ui/LocationMap";
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 const paragraphs = [
-  "We chose Danhonu 1, Chikun LGA, because it is a livestock-dependent community with no reliable access to veterinary care, exactly the gap Plush Agri Solutions exists to close.",
-  "Since our brand launch in May 2026, we have run community engagement sessions, completed farm visits with local herders, and delivered One Health education in the local school.",
-  "Farmers under our advisory now have a direct line to a vet for the first time, and the trust built in Danhonu 1 is the model for how we enter every new community.",
-  "What comes next is expansion: taking the same community-first approach to more livestock-dependent communities across Kaduna State.",
+  "We chose Danhonu 1, Chikun LGA for its livestock-dependent community with no reliable vet access — the gap we exist to close. Since May 2026 we've run engagement sessions, farm visits, and One Health education in the local school.",
+  "Farmers now have a direct line to a vet for the first time, and the trust we've built here is the model for how we expand to more livestock-dependent communities across Kaduna State.",
 ];
 
 const metrics = [
@@ -31,12 +29,14 @@ function AnimatedMetric({
   value,
   prefix,
   suffix,
+  label,
 }: {
   value: number;
   prefix: string;
   suffix: string;
+  label: string;
 }) {
-  const ref = useRef<HTMLParagraphElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const reduceMotion = useReducedMotion();
   const [display, setDisplay] = useState(0);
@@ -56,15 +56,28 @@ function AnimatedMetric({
   }, [isInView, value, reduceMotion]);
 
   return (
-    <p
-      ref={ref}
-      className="num-tabular text-navy font-bold"
-      style={{ fontSize: "2rem" }}
-    >
-      {prefix}
-      {display}
-      {suffix}
-    </p>
+    <div ref={ref}>
+      <p
+        className="num-tabular text-navy font-heading font-bold leading-none"
+        style={{ fontSize: "3rem" }}
+      >
+        {prefix}
+        {display}
+        {suffix}
+      </p>
+      <motion.div
+        className="h-[3px] w-10 bg-bright-green rounded-full origin-left mt-3"
+        initial={{ scaleX: 0 }}
+        animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+        transition={{ duration: reduceMotion ? 0 : 1.4, ease: [0.25, 0, 0, 1] }}
+      />
+      <p
+        className="text-gray-600 text-sm mt-2 tracking-wide"
+        style={{ fontVariant: "small-caps" }}
+      >
+        {label}
+      </p>
+    </div>
   );
 }
 
@@ -108,14 +121,17 @@ export default function DanhonuPilotSection() {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-6 grid grid-cols-3 gap-4"
+            className="lg:col-span-6 grid grid-cols-3 gap-4 lg:h-full"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.25, ease: EASE }}
           >
             {photos.map((photo) => (
-              <div key={photo.src} className="relative card overflow-hidden aspect-[3/4]">
+              <div
+                key={photo.src}
+                className="relative card overflow-hidden aspect-[3/4] lg:aspect-auto lg:h-full"
+              >
                 <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 33vw, 17vw" className="object-cover" />
               </div>
             ))}
@@ -124,24 +140,30 @@ export default function DanhonuPilotSection() {
 
         {/* Metrics + location, aligned in one row */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center pt-12 border-t border-accent"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start pt-12 border-t border-accent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {metrics.map((m) => (
-              <div key={m.label}>
-                <AnimatedMetric value={m.value} prefix={m.prefix} suffix={m.suffix} />
-                <p className="text-gray-600 text-sm mt-1">{m.label}</p>
-              </div>
+              <AnimatedMetric
+                key={m.label}
+                value={m.value}
+                prefix={m.prefix}
+                suffix={m.suffix}
+                label={m.label}
+              />
             ))}
           </div>
 
-          <div className="lg:col-span-4 flex flex-col items-start gap-2">
+          <div className="lg:col-span-5 flex flex-col items-start gap-2">
             <p className="label">This is where we work</p>
             <LocationMap />
+            <p className="text-gray-600 text-sm mt-1">
+              Danhonu 1, Chikun LGA — our pilot and founding community.
+            </p>
           </div>
         </motion.div>
       </div>

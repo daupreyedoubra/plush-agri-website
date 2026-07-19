@@ -56,10 +56,13 @@ export default function WhatWeDoSection() {
               >
                 <Link
                   href="/services"
-                  className="card block h-full p-7 bg-[#FAFAF8] text-navy transition-transform hover:-translate-y-1"
+                  className="card group block h-full p-7 bg-[#FAFAF8] text-navy transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:-translate-y-[5px] hover:shadow-[0_16px_36px_rgba(22,54,92,0.18)] motion-reduce:hover:translate-y-0"
                 >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-olive/15">
-                    <Icon className="w-6 h-6 text-olive" strokeWidth={1.75} />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-olive/15 transition-colors duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] group-hover:bg-bright-green/20">
+                    <Icon
+                      className="w-6 h-6 text-olive transition-colors duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] group-hover:text-bright-green"
+                      strokeWidth={1.75}
+                    />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">
                     {service.title}

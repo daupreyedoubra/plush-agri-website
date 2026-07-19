@@ -38,7 +38,7 @@ export default function ProblemSection() {
           {problems.map((item, i) => (
             <motion.div
               key={item.title}
-              className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-8"
+              className="rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 p-8 transition-[background-color,border-color,transform] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:bg-white/[0.22] hover:border-white/35 hover:-translate-y-[5px] motion-reduce:hover:translate-y-0"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

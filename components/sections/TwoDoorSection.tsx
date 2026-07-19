@@ -37,12 +37,6 @@ export default function TwoDoorSection() {
               <CtaButton href="mailto:plushagrisolutions@gmail.com">
                 Email Us
               </CtaButton>
-              <a
-                href="tel:+2348033670509"
-                className="text-white/70 hover:text-white text-sm transition-colors"
-              >
-                0803 367 0509
-              </a>
             </div>
           </motion.div>
 

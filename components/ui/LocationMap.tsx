@@ -18,8 +18,8 @@ const COORDS_LABEL = COORDS_RESOLVED
 const BBOX = [LON - 0.05, LAT - 0.05, LON + 0.05, LAT + 0.05].join(",");
 const OSM_EMBED_URL = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(BBOX)}&layer=mapnik`;
 
-const COLLAPSED = { width: 240, height: 140 };
-const EXPANDED = { width: 360, height: 280 };
+const COLLAPSED = { width: 360, height: 210 };
+const EXPANDED = { width: 480, height: 360 };
 
 export default function LocationMap() {
   const [open, setOpen] = useState(false);
@@ -82,16 +82,24 @@ export default function LocationMap() {
     >
       <motion.div
         style={reduceMotion ? undefined : { rotateX, rotateY }}
-        animate={size}
-        transition={reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 220, damping: 24 }}
+        animate={{ ...size, y: reduceMotion ? 0 : [0, -3, 0] }}
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : {
+                width: { type: "spring", stiffness: 220, damping: 24 },
+                height: { type: "spring", stiffness: 220, damping: 24 },
+                y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+              }
+        }
         className="card relative bg-white overflow-hidden"
       >
         {/* Header: label + Live chip, always visible */}
-        <div className="flex items-center justify-between gap-2 px-4 pt-4">
-          <p className="font-heading font-semibold text-navy text-sm leading-tight">
+        <div className="flex items-center justify-between gap-2 px-5 pt-5">
+          <p className="font-heading font-semibold text-navy text-base leading-tight">
             Danhonu 1, Chikun LGA
           </p>
-          <span className="shrink-0 inline-flex items-center gap-1.5 bg-navy text-white text-[10px] font-semibold uppercase tracking-wide px-2 py-1 rounded-full">
+          <span className="shrink-0 inline-flex items-center gap-1.5 bg-navy text-white text-[10px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full">
             <span
               className={`w-1.5 h-1.5 rounded-full bg-bright-green ${reduceMotion ? "" : "animate-pulse"}`}
               aria-hidden="true"
@@ -105,7 +113,7 @@ export default function LocationMap() {
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : 0.15 }}
-            className="px-4 pb-4 pt-3 h-[calc(100%-52px)] flex flex-col gap-2"
+            className="px-5 pb-5 pt-3 h-[calc(100%-60px)] flex flex-col gap-2"
           >
             <div className="relative flex-1 rounded-lg overflow-hidden border border-accent bg-[#FAFAF8]">
               <iframe

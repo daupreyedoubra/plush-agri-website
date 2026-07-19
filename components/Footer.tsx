@@ -22,7 +22,7 @@ export default function Footer() {
               alt="Plush Agri Solutions"
               width={200}
               height={80}
-              className="mb-6 h-9 w-auto object-contain"
+              className="mb-6 h-10 lg:h-12 w-auto object-contain"
             />
             <p className="text-white/90 text-base font-medium mb-2">
               Practical Solutions for Real Farm Problems.
