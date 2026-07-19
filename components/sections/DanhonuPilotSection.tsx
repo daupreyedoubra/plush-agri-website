@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, animate, useInView, useReducedMotion } from "framer-motion";
 import LocationMap from "@/components/ui/LocationMap";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
@@ -14,10 +15,10 @@ const paragraphs = [
 ];
 
 const metrics = [
-  { value: "29", label: "farmers under advisory" },
-  { value: "31", label: "people trained" },
-  { value: "7", label: "farm visits completed" },
-  { value: "₦7M", label: "project funds managed" },
+  { value: 29, prefix: "", suffix: "", label: "farmers under advisory" },
+  { value: 31, prefix: "", suffix: "", label: "people trained" },
+  { value: 7, prefix: "", suffix: "", label: "farm visits completed" },
+  { value: 7, prefix: "₦", suffix: "M", label: "project funds managed" },
 ];
 
 const photos = [
@@ -26,9 +27,50 @@ const photos = [
   { src: "/images/_MG_2930.jpg", alt: "Plush Agri Solutions team member leading a farmer training session" },
 ];
 
+function AnimatedMetric({
+  value,
+  prefix,
+  suffix,
+}: {
+  value: number;
+  prefix: string;
+  suffix: string;
+}) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const reduceMotion = useReducedMotion();
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    if (reduceMotion) {
+      setDisplay(value);
+      return;
+    }
+    const controls = animate(0, value, {
+      duration: 1.4,
+      ease: [0.25, 0, 0, 1],
+      onUpdate: (v) => setDisplay(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [isInView, value, reduceMotion]);
+
+  return (
+    <p
+      ref={ref}
+      className="num-tabular text-navy font-bold"
+      style={{ fontSize: "2rem" }}
+    >
+      {prefix}
+      {display}
+      {suffix}
+    </p>
+  );
+}
+
 export default function DanhonuPilotSection() {
   return (
-    <section className="bg-cream py-24 lg:py-32">
+    <section className="bg-white py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label mb-6"
@@ -41,13 +83,13 @@ export default function DanhonuPilotSection() {
         </motion.p>
 
         <motion.h2
-          className="text-navy text-3xl lg:text-4xl mb-14 max-w-xl"
+          className="text-navy font-bold text-3xl lg:text-4xl mb-14 max-w-xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
-          We started where the need is real: Danhonu 1.
+          We started where the <span className="text-bright-green">need is real</span>: Danhonu 1.
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
@@ -66,46 +108,41 @@ export default function DanhonuPilotSection() {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-6 grid grid-cols-2 gap-4"
+            className="lg:col-span-6 grid grid-cols-3 gap-4"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.25, ease: EASE }}
           >
-            <div className="relative card overflow-hidden row-span-2 aspect-[3/4]">
-              <Image src={photos[0].src} alt={photos[0].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </div>
-            <div className="relative card overflow-hidden aspect-square">
-              <Image src={photos[1].src} alt={photos[1].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </div>
-            <div className="relative card overflow-hidden aspect-square">
-              <Image src={photos[2].src} alt={photos[2].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </div>
-
-            <div className="col-span-2 flex flex-col items-start gap-2 mt-2">
-              <p className="label">This is where we work</p>
-              <LocationMap />
-            </div>
+            {photos.map((photo) => (
+              <div key={photo.src} className="relative card overflow-hidden aspect-[3/4]">
+                <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 33vw, 17vw" className="object-cover" />
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Metrics strip */}
+        {/* Metrics + location, aligned in one row */}
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-12 border-t border-accent"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center pt-12 border-t border-accent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
-          {metrics.map((m) => (
-            <div key={m.label}>
-              <p className="num-tabular text-navy font-bold" style={{ fontSize: "2rem" }}>
-                {m.value}
-              </p>
-              <p className="text-gray-600 text-sm mt-1">{m.label}</p>
-              <p className="text-gray-400 text-xs mt-1">as at July 2026</p>
-            </div>
-          ))}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {metrics.map((m) => (
+              <div key={m.label}>
+                <AnimatedMetric value={m.value} prefix={m.prefix} suffix={m.suffix} />
+                <p className="text-gray-600 text-sm mt-1">{m.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="lg:col-span-4 flex flex-col items-start gap-2">
+            <p className="label">This is where we work</p>
+            <LocationMap />
+          </div>
         </motion.div>
       </div>
     </section>

@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${figtree.variable}`}>
-      <body className="font-sans min-h-screen flex flex-col antialiased bg-cream text-gray-900">
+      <body className="font-sans min-h-screen flex flex-col antialiased bg-white text-gray-900">
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <Navbar />
         <main id="main-content" className="flex-1">{children}</main>

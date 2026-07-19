@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import CtaButton from "@/components/ui/CtaButton";
 
@@ -39,11 +40,14 @@ export default function COHIBannerSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
           >
-            {/* PHOTO NEEDED: COHI schoolchildren session in Danhonu 1 */}
-            <div className="card bg-cream aspect-[4/3] flex items-center justify-center text-center p-8">
-              <p className="text-navy/50 text-sm">
-                PHOTO NEEDED: COHI schoolchildren session, Danhonu 1
-              </p>
+            <div className="relative card overflow-hidden aspect-[4/3]">
+              <Image
+                src="/images/cohi-school-07.jpeg"
+                alt="Plush Agri Solutions One Health education session with schoolgirls and community mentors in Danhonu 1"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
             </div>
           </motion.div>
         </div>

@@ -22,8 +22,7 @@ export default function Footer() {
               alt="Plush Agri Solutions"
               width={200}
               height={80}
-              className="mb-6 h-16 w-auto object-contain"
-              style={{ minWidth: "160px" }}
+              className="mb-6 h-9 w-auto object-contain"
             />
             <p className="text-white/90 text-base font-medium mb-2">
               Practical Solutions for Real Farm Problems.
@@ -121,9 +120,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-sm text-white/40">
-          <p>Tare da manoma. An tabbatar a gonar.</p>
-          <p>© 2026 Plush Agri Solutions. All rights reserved.</p>
+        <div className="mt-16 pt-8 border-t border-white/10 text-center text-sm text-white/40">
+          <p>© 2026 Plush Agri Solutions</p>
         </div>
       </div>
     </footer>

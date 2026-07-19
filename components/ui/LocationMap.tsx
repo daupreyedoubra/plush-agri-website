@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { MapPin } from "lucide-react";
@@ -23,7 +23,14 @@ const EXPANDED = { width: 360, height: 280 };
 
 export default function LocationMap() {
   const [open, setOpen] = useState(false);
-  const reduceMotion = useReducedMotion();
+  const reduceMotionPreference = useReducedMotion();
+  // useReducedMotion() reads the media query synchronously on the client,
+  // which differs from the server's default and causes a hydration
+  // mismatch. Stay in the "motion enabled" render (matching SSR) until
+  // mounted, then apply the real preference.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const reduceMotion = mounted && !!reduceMotionPreference;
 
   const rotateXRaw = useMotionValue(0);
   const rotateYRaw = useMotionValue(0);
@@ -100,7 +107,7 @@ export default function LocationMap() {
             transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : 0.15 }}
             className="px-4 pb-4 pt-3 h-[calc(100%-52px)] flex flex-col gap-2"
           >
-            <div className="relative flex-1 rounded-lg overflow-hidden border border-accent bg-cream">
+            <div className="relative flex-1 rounded-lg overflow-hidden border border-accent bg-[#FAFAF8]">
               <iframe
                 src={OSM_EMBED_URL}
                 className="w-full h-full border-0"

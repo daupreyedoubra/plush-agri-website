@@ -26,7 +26,7 @@ const photos = [
 
 export default function PilotCommunitySection() {
   return (
-    <section className="bg-cream py-24 lg:py-32">
+    <section className="bg-[#FAFAF8] py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label mb-6"

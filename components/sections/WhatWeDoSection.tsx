@@ -11,25 +11,21 @@ const services = [
     icon: Stethoscope,
     title: "Farm Advisory Visits",
     body: "Scheduled farm-gate visits for herd health checks, diagnosis, and hands-on advice.",
-    highlight: true,
   },
   {
     icon: GraduationCap,
     title: "Training & Capacity Building",
     body: "Practical sessions that build farmer and community health worker skills over time.",
-    highlight: false,
   },
   {
     icon: Package,
     title: "Input Supply",
     body: "Access to the feed, supplements, and treatments farmers need, on the ground.",
-    highlight: false,
   },
   {
     icon: Handshake,
     title: "Partnership Delivery",
     body: "Programme design and delivery for partners working in Kaduna State communities.",
-    highlight: false,
   },
 ];
 
@@ -60,32 +56,15 @@ export default function WhatWeDoSection() {
               >
                 <Link
                   href="/services"
-                  className={`card block h-full p-7 transition-transform hover:-translate-y-1 ${
-                    service.highlight
-                      ? "bg-bright-green text-white"
-                      : "bg-cream text-navy"
-                  }`}
+                  className="card block h-full p-7 bg-[#FAFAF8] text-navy transition-transform hover:-translate-y-1"
                 >
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 ${
-                      service.highlight ? "bg-white/20" : "bg-olive/15"
-                    }`}
-                  >
-                    <Icon
-                      className={`w-6 h-6 ${
-                        service.highlight ? "text-white" : "text-olive"
-                      }`}
-                      strokeWidth={1.75}
-                    />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-olive/15">
+                    <Icon className="w-6 h-6 text-olive" strokeWidth={1.75} />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">
                     {service.title}
                   </h3>
-                  <p
-                    className={`text-sm leading-relaxed ${
-                      service.highlight ? "text-white/90" : "text-gray-600"
-                    }`}
-                  >
+                  <p className="text-sm leading-relaxed text-gray-600">
                     {service.body}
                   </p>
                 </Link>

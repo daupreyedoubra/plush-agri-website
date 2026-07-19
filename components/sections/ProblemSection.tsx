@@ -21,24 +21,14 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section className="bg-cream py-24 lg:py-32">
+    <section className="relative z-0 bg-navy pt-24 pb-24 lg:pt-32 lg:pb-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
-          className="label mb-6"
+          className="text-white text-2xl lg:text-3xl font-bold leading-snug max-w-2xl mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
-        >
-          The Problem
-        </motion.p>
-
-        <motion.p
-          className="text-navy text-2xl lg:text-3xl font-semibold leading-snug max-w-2xl mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
           Expert guidance reaches smallholder farmers late, generic, or not
           at all.
@@ -48,16 +38,16 @@ export default function ProblemSection() {
           {problems.map((item, i) => (
             <motion.div
               key={item.title}
-              className="card bg-white p-8"
+              className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-8"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.1, ease: EASE }}
             >
-              <h3 className="text-navy text-lg font-semibold mb-2">
+              <h3 className="text-white text-lg font-semibold mb-2">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-white/75 text-sm leading-relaxed">
                 {item.body}
               </p>
             </motion.div>

@@ -108,7 +108,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="lg:hidden fixed inset-0 top-20 z-50 bg-cream overflow-y-auto"
+            className="lg:hidden fixed inset-0 top-20 z-50 bg-[#FAFAF8] overflow-y-auto"
           >
             <div className="px-6 py-8 flex flex-col gap-1 min-h-full">
               {navLinks.map((link) => (

@@ -85,7 +85,7 @@ export default function ApproachSection() {
           {programmes.map((programme) => (
             <motion.div
               key={programme.name}
-              className="card bg-cream p-8 flex flex-col gap-5"
+              className="card bg-[#FAFAF8] p-8 flex flex-col gap-5"
               variants={cardVariants}
             >
               <span className="w-12 h-12 rounded-full bg-olive/15 flex items-center justify-center">
