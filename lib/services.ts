@@ -1,6 +1,13 @@
 // NOTE: Content below is written in the PAS brand voice.
 // Verify all descriptions against Company Profile Sections 04 and 06 before launch.
 
+export interface ServiceImage {
+  src: string;
+  alt: string;
+  /** True for portrait-orientation photos so layouts can pick a taller frame. */
+  portrait?: boolean;
+}
+
 export interface Service {
   id: string;
   number: string;
@@ -9,8 +16,8 @@ export interface Service {
   problem: string;
   approach: string;
   outcomes: string[];
-  imageUrl: string;
-  imageAlt: string;
+  /** Real field photo from public/images. Omitted for services without a genuinely fitting photo. */
+  image?: ServiceImage;
 }
 
 export const services: Service[] = [
@@ -19,8 +26,11 @@ export const services: Service[] = [
     number: "01",
     name: "Veterinary Advisory",
     tagline: "Credentialed diagnosis and guidance, delivered at the farm.",
-    imageUrl: "https://images.unsplash.com/photo-1559839914-17aae19cec71?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Veterinary professional conducting livestock advisory in the field",
+    image: {
+      src: "/images/_MG_2915.jpg",
+      alt: "An elder farmer during a one-on-one Plush Agri Solutions advisory session in Danhonu 1",
+      portrait: true,
+    },
     problem:
       "Most farmers in Northern Nigeria have never had direct access to a qualified veterinarian. When livestock fall ill, they rely on informal advice, secondhand remedies, or no information at all, often too late to prevent serious loss.",
     approach:
@@ -37,8 +47,6 @@ export const services: Service[] = [
     number: "02",
     name: "Farm Visits",
     tagline: "Present on the farm. Accountable for the outcome.",
-    imageUrl: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "PAS field team conducting a farm visit with a farmer in Northern Nigeria",
     problem:
       "Remote advisory services such as phone calls, pamphlets, and one-off workshops consistently fail smallholder farmers because they ignore the specific conditions of each farm. Generic advice applied to a specific situation often makes things worse.",
     approach:
@@ -55,8 +63,6 @@ export const services: Service[] = [
     number: "03",
     name: "Livestock Health Support",
     tagline: "Prevention built into the rhythm of the farm.",
-    imageUrl: "https://images.unsplash.com/photo-1527153818091-1a9638521e2a?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Cattle herd in Northern Nigeria receiving livestock health support",
     problem:
       "Infectious disease moves quickly through a herd. By the time a visible problem is identified, significant losses may already be unavoidable. Most farmers have no preventive health protocol in place.",
     approach:
@@ -73,8 +79,10 @@ export const services: Service[] = [
     number: "04",
     name: "Farmer Training",
     tagline: "Knowledge that stays on the farm long after we leave.",
-    imageUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Farmer training session with smallholder farmers in Northern Nigeria",
+    image: {
+      src: "/images/_MG_2872.jpg",
+      alt: "Farmers listening during a Plush Agri Solutions training session in Danhonu 1",
+    },
     problem:
       "One-off information sessions do not change farm behaviour. Farmers need structured, repeatable learning, delivered in the context of their own operation, to actually shift how they manage their land and animals.",
     approach:
@@ -91,8 +99,6 @@ export const services: Service[] = [
     number: "05",
     name: "Biosecurity Advisory",
     tagline: "Stopping disease before it enters the gate.",
-    imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Agricultural field in Northern Nigeria, biosecurity assessment in progress",
     problem:
       "Poor biosecurity, from how animals are housed, to how new stock is introduced, to how visitors move through a farm, creates the conditions for disease to enter and spread. Most farmers have no formal protocol in place.",
     approach:
@@ -109,8 +115,11 @@ export const services: Service[] = [
     number: "06",
     name: "Agricultural Input Access",
     tagline: "Quality inputs at fair prices, when they are actually needed.",
-    imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Agricultural inputs and resources for farmers in Northern Nigeria",
+    image: {
+      src: "/images/_MG_2942.jpg",
+      alt: "Plush Agri Solutions branded seed inputs held up at a distribution session",
+      portrait: true,
+    },
     problem:
       "Access to quality vaccines, biologicals, and equipment is inconsistent across rural Northern Nigeria. Farmers are often forced to use substandard inputs, pay inflated prices, or go without, all of which erode the value of any advisory work done.",
     approach:
@@ -127,8 +136,10 @@ export const services: Service[] = [
     number: "07",
     name: "Cooperative Support",
     tagline: "Advisory and input access that scales across a membership.",
-    imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Cooperative farmers meeting and receiving group advisory in Northern Nigeria",
+    image: {
+      src: "/images/_MG_2870.jpg",
+      alt: "Members of a farmer group during a Plush Agri Solutions advisory meeting",
+    },
     problem:
       "Farmer cooperatives are a critical vehicle for agricultural development in Northern Nigeria, but they frequently lack technical support to standardise practices, negotiate input access, or deliver structured advisory to their members.",
     approach:
@@ -145,8 +156,10 @@ export const services: Service[] = [
     number: "08",
     name: "Community Engagement",
     tagline: "Agricultural health addressed at the scale it actually operates.",
-    imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Community engagement programme with farmers in a Northern Nigerian village",
+    image: {
+      src: "/images/_MG_2911.jpg",
+      alt: "Community members gathered for a Plush Agri Solutions engagement session in Danhonu 1",
+    },
     problem:
       "Disease outbreaks, nutritional deficiencies, and productivity challenges do not stop at farm boundaries. When they are addressed farm-by-farm, the community-level drivers of the problem remain untouched.",
     approach:
@@ -163,8 +176,6 @@ export const services: Service[] = [
     number: "09",
     name: "Development Programme Support",
     tagline: "A trusted technical partner with genuine community access.",
-    imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "PAS team delivering development programme support in the field",
     problem:
       "NGOs, government agencies, and international organisations working in agricultural development frequently struggle to find technical partners with verified community access, credentialed expertise, and a functioning M&E framework.",
     approach:
@@ -181,8 +192,10 @@ export const services: Service[] = [
     number: "10",
     name: "Capacity Building",
     tagline: "The work that makes all other work last.",
-    imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80&auto=format&fit=crop",
-    imageAlt: "Capacity building session with farmers and veterinary professionals in Northern Nigeria",
+    image: {
+      src: "/images/_MG_2862.jpg",
+      alt: "Women farmers participating in a Plush Agri Solutions capacity building session",
+    },
     problem:
       "Advisory visits and training sessions create temporary improvement. Sustainable change requires farmers to internalise knowledge and build the skill to apply it independently, season after season, without external support.",
     approach:

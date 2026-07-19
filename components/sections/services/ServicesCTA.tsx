@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import CtaButton from "@/components/ui/CtaButton";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -47,20 +47,12 @@ export default function ServicesCTA() {
               {...inView}
               transition={{ duration: 0.6, delay: 0.25, ease: EASE }}
             >
-              <Link
-                href="/contact"
-                className="cta-btn inline-flex items-center justify-center bg-secondary text-white font-semibold text-sm px-8 h-12 hover:bg-secondary/90 whitespace-nowrap"
-                style={{ borderRadius: "4px" }}
-              >
+              <CtaButton href="/contact" variant="primary">
                 Talk to a Vet
-              </Link>
-              <Link
-                href="/contact"
-                className="cta-btn inline-flex items-center justify-center border border-white/30 text-white font-semibold text-sm px-8 h-12 hover:border-white/60 whitespace-nowrap"
-                style={{ borderRadius: "4px" }}
-              >
+              </CtaButton>
+              <CtaButton href="/contact" variant="outline">
                 Book a Farm Visit
-              </Link>
+              </CtaButton>
             </motion.div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import CtaButton from "@/components/ui/CtaButton";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -13,7 +13,7 @@ const inView = {
 
 export default function AboutCTASection() {
   return (
-    <section className="bg-trust py-24 lg:py-32">
+    <section className="bg-dark-green py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
           {/* Text */}
@@ -41,20 +41,12 @@ export default function AboutCTASection() {
               {...inView}
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             >
-              <Link
-                href="/partnerships"
-                className="cta-btn inline-flex items-center justify-center bg-primary text-white font-semibold text-sm px-8 h-12 hover:bg-primary/90 whitespace-nowrap"
-                style={{ borderRadius: "4px" }}
-              >
+              <CtaButton href="/partnerships" variant="primary">
                 Explore Partnerships
-              </Link>
-              <Link
-                href="/contact"
-                className="cta-btn inline-flex items-center justify-center border border-white/30 text-white font-semibold text-sm px-8 h-12 hover:border-white/60 whitespace-nowrap"
-                style={{ borderRadius: "4px" }}
-              >
+              </CtaButton>
+              <CtaButton href="/contact" variant="outline">
                 Get in Touch
-              </Link>
+              </CtaButton>
             </motion.div>
           </div>
         </div>

@@ -53,11 +53,11 @@ const inView = {
 
 export default function OrgStructureSection() {
   return (
-    <section className="bg-neutral py-24 lg:py-32">
+    <section className="bg-[#FAFAF8] py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Label */}
         <motion.p
-          className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary mb-6"
+          className="label mb-6"
           {...inView}
           transition={{ duration: 0.5, ease: EASE }}
         >
@@ -65,7 +65,7 @@ export default function OrgStructureSection() {
         </motion.p>
 
         <motion.h2
-          className="text-3xl lg:text-4xl font-bold text-primary leading-[1.2] mb-4 max-w-xl"
+          className="text-3xl lg:text-4xl font-bold text-navy leading-[1.2] mb-4 max-w-xl"
           {...inView}
           transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
         >
@@ -73,7 +73,7 @@ export default function OrgStructureSection() {
         </motion.h2>
 
         <motion.p
-          className="text-base text-gray-500 mb-16 lg:mb-20 max-w-lg"
+          className="text-base text-gray-500 mb-14 lg:mb-16 max-w-lg"
           {...inView}
           transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
         >
@@ -83,14 +83,11 @@ export default function OrgStructureSection() {
 
         {/* Top node */}
         <motion.div
-          className="flex justify-center mb-0"
+          className="flex justify-center"
           {...inView}
           transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
         >
-          <div
-            className="bg-primary text-white px-8 py-5 text-center"
-            style={{ borderRadius: "4px" }}
-          >
+          <div className="card bg-navy text-white px-8 py-5 text-center">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50 mb-1">
               {orgStructure.top.role}
             </p>
@@ -104,21 +101,12 @@ export default function OrgStructureSection() {
           {...inView}
           transition={{ duration: 0.4, delay: 0.3, ease: EASE }}
         >
-          <div className="w-px h-10 bg-accent" aria-hidden="true" />
-        </motion.div>
-
-        {/* Horizontal bar */}
-        <motion.div
-          className="relative flex justify-center mb-0"
-          {...inView}
-          transition={{ duration: 0.5, delay: 0.35, ease: EASE }}
-        >
-          <div className="absolute top-0 left-[12.5%] right-[12.5%] h-px bg-accent" />
+          <div className="w-px h-10 bg-navy/15" aria-hidden="true" />
         </motion.div>
 
         {/* Department nodes */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-accent mt-0"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -127,15 +115,15 @@ export default function OrgStructureSection() {
           {orgStructure.departments.map((dept) => (
             <motion.div
               key={dept.name}
-              className="bg-white pt-8 pb-10 px-6 flex flex-col gap-4"
+              className="card bg-white p-6 flex flex-col gap-4"
               variants={itemVariants}
             >
               {/* Connector dot */}
               <div
-                className="w-2 h-2 rounded-full bg-secondary mb-2"
+                className="w-2 h-2 rounded-full bg-olive mb-1"
                 aria-hidden="true"
               />
-              <h4 className="text-sm font-bold text-primary leading-snug">
+              <h4 className="text-sm font-bold text-navy leading-snug">
                 {dept.name}
               </h4>
               <ul className="space-y-2">
@@ -144,7 +132,7 @@ export default function OrgStructureSection() {
                     key={fn}
                     className="text-xs text-gray-500 flex items-start gap-2"
                   >
-                    <span className="mt-1.5 block w-1.5 h-1.5 flex-shrink-0 bg-accent" />
+                    <span className="mt-1.5 block w-1.5 h-1.5 flex-shrink-0 rounded-full bg-navy/20" />
                     {fn}
                   </li>
                 ))}
@@ -152,7 +140,6 @@ export default function OrgStructureSection() {
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   );

@@ -17,7 +17,7 @@ export default function FounderSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Label */}
         <motion.p
-          className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary mb-6"
+          className="label mb-6"
           {...inView}
           transition={{ duration: 0.5, ease: EASE }}
         >
@@ -25,7 +25,7 @@ export default function FounderSection() {
         </motion.p>
 
         <motion.h2
-          className="text-3xl lg:text-4xl font-bold text-primary leading-[1.2] mb-16 lg:mb-20"
+          className="text-3xl lg:text-4xl font-bold text-navy leading-[1.2] mb-14 lg:mb-16"
           {...inView}
           transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
         >
@@ -39,18 +39,18 @@ export default function FounderSection() {
             {...inView}
             transition={{ duration: 0.6, ease: EASE }}
           >
-            <div className="relative aspect-[3/4] overflow-hidden bg-accent">
+            <div className="relative card overflow-hidden aspect-[3/4]">
               <Image
-                src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80&auto=format&fit=crop"
+                src="/images/Rukkayah.jpeg"
                 alt="Dr. Rukayyah Abdulsalam, Founder of Plush Agri Solutions"
                 fill
-                className="object-cover object-top"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 33vw"
               />
             </div>
             {/* Caption */}
             <div className="mt-5 pl-1">
-              <p className="text-base font-bold text-primary">
+              <p className="text-base font-bold text-navy">
                 Dr. Rukayyah Abdulsalam
               </p>
               <p className="text-sm text-gray-500 mt-1">
@@ -75,15 +75,14 @@ export default function FounderSection() {
               ].map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-semibold tracking-wide uppercase px-4 py-2 border border-accent text-primary"
-                  style={{ borderRadius: "4px" }}
+                  className="text-xs font-semibold tracking-wide uppercase px-4 py-2 rounded-full bg-olive/10 text-olive"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Bio text — NOTE: Replace with founder biography from Company Profile */}
+            {/* Bio text */}
             <div className="space-y-5 text-base text-gray-600 leading-relaxed">
               <p>
                 Dr. Rukayyah Abdulsalam is the founder and principal consultant
@@ -94,11 +93,10 @@ export default function FounderSection() {
                 it most, in the places where they work.
               </p>
               <p>
-                Her approach is grounded in field observation, follow-through,
-                and the kind of sustained relationships that allow farmers to
-                build real capacity over time. She works directly with
-                smallholder and commercial farmers, cooperatives, rural
-                communities, and development partners across Northern Nigeria.
+                She works directly with smallholder and commercial farmers,
+                cooperatives, rural communities, and development partners
+                across Northern Nigeria, building the sustained relationships
+                that let farmers grow real capacity over time.
               </p>
               <p>
                 Under her leadership, PAS has developed partnerships with
@@ -106,7 +104,6 @@ export default function FounderSection() {
                 continues to expand its geographic reach across the region.
               </p>
             </div>
-
           </motion.div>
         </div>
       </div>

@@ -62,7 +62,7 @@ export default function ExpansionSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Label */}
         <motion.p
-          className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary mb-6"
+          className="label mb-6"
           {...inView}
           transition={{ duration: 0.5, ease: EASE }}
         >
@@ -70,7 +70,7 @@ export default function ExpansionSection() {
         </motion.p>
 
         <motion.h2
-          className="text-3xl lg:text-4xl font-bold text-primary leading-[1.2] mb-4 max-w-xl"
+          className="text-3xl lg:text-4xl font-bold text-navy leading-[1.2] mb-4 max-w-xl"
           {...inView}
           transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
         >
@@ -78,11 +78,12 @@ export default function ExpansionSection() {
         </motion.h2>
 
         <motion.p
-          className="text-base text-gray-500 mb-16 lg:mb-20 max-w-2xl"
+          className="text-base text-gray-500 mb-14 lg:mb-16 max-w-2xl"
           {...inView}
           transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
         >
-          PAS grows only where it can deliver. Each phase is earned through documented outcomes in the previous one.
+          PAS grows only where it can deliver. Each phase is earned through
+          documented outcomes in the previous one.
         </motion.p>
 
         {/* Timeline */}
@@ -93,27 +94,32 @@ export default function ExpansionSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {/* Vertical spine — desktop only */}
-          <div
-            className="hidden lg:block absolute left-[120px] top-0 bottom-0 w-px bg-accent"
+          {/* Vertical spine — desktop only, revealed as the section scrolls in */}
+          <motion.div
+            className="hidden lg:block absolute left-[120px] top-0 bottom-0 w-px bg-navy/15"
+            style={{ transformOrigin: "top" }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 1.2, ease: EASE }}
             aria-hidden="true"
           />
 
           <div className="space-y-0">
-            {phases.map((phase, i) => (
+            {phases.map((phase) => (
               <motion.div
                 key={phase.number}
-                className="relative lg:grid lg:grid-cols-[120px_1fr] lg:gap-12 items-start border-b border-accent last:border-b-0 py-10 lg:py-12"
+                className="relative lg:grid lg:grid-cols-[120px_1fr] lg:gap-12 items-start border-b border-navy/10 last:border-b-0 py-10 lg:py-12"
                 variants={phaseVariants}
               >
                 {/* Phase number + dot */}
                 <div className="flex lg:flex-col lg:items-center items-center gap-4 mb-6 lg:mb-0 lg:pt-1">
                   {/* Dot on timeline */}
                   <div
-                    className="hidden lg:flex items-center justify-center w-3 h-3 rounded-full border-2 border-secondary bg-white z-10 flex-shrink-0"
+                    className="hidden lg:flex items-center justify-center w-3 h-3 rounded-full border-2 border-olive bg-white z-10 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-secondary">
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-olive">
                     {phase.number}
                   </span>
                 </div>
@@ -121,10 +127,7 @@ export default function ExpansionSection() {
                 {/* Content */}
                 <div className="lg:pl-0">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span
-                      className="text-xs font-semibold tracking-wide uppercase px-3 py-1 bg-accent text-primary"
-                      style={{ borderRadius: "4px" }}
-                    >
+                    <span className="text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-olive/10 text-olive">
                       {phase.label}
                     </span>
                     <span className="text-sm text-gray-400">
@@ -139,7 +142,6 @@ export default function ExpansionSection() {
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );
