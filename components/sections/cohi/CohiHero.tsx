@@ -15,13 +15,25 @@ const fadeUp = (delay: number): Variants => ({
 export default function CohiHero() {
   return (
     <section className="relative min-h-[80vh] flex items-end overflow-hidden">
-      <Image
-        src="/images/cohi-school-02.jpeg"
-        alt="Dr. Rukayyah Abdulsalam leading a One Health education session with schoolchildren in Danhonu 1"
-        fill
-        priority
-        className="object-cover"
-      />
+      <motion.div
+        className="absolute inset-0"
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.05 }}
+        transition={{
+          duration: 12,
+          ease: "linear",
+          repeat: Infinity,
+          repeatType: "mirror",
+        }}
+      >
+        <Image
+          src="/images/cohi-school-02.jpeg"
+          alt="Dr. Rukayyah Abdulsalam leading a One Health education session with schoolchildren in Danhonu 1"
+          fill
+          priority
+          className="object-cover"
+        />
+      </motion.div>
       <div className="absolute inset-0 bg-navy" style={{ opacity: 0.4 }} />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 pb-16 pt-40 lg:pb-24">

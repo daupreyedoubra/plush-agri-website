@@ -85,11 +85,15 @@ export default function ApproachSection() {
           {programmes.map((programme) => (
             <motion.div
               key={programme.name}
-              className="card bg-[#FAFAF8] p-8 flex flex-col gap-5"
+              className="card group bg-[#FAFAF8] p-8 flex flex-col gap-5 transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:-translate-y-[5px] hover:shadow-[0_16px_36px_rgba(22,54,92,0.18)] motion-reduce:hover:translate-y-0"
               variants={cardVariants}
             >
-              <span className="w-12 h-12 rounded-full bg-olive/15 flex items-center justify-center">
-                <programme.icon className="w-6 h-6 text-olive" strokeWidth={1.75} aria-hidden="true" />
+              <span className="w-12 h-12 rounded-full bg-olive/15 flex items-center justify-center transition-colors duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] group-hover:bg-bright-green/20">
+                <programme.icon
+                  className="w-6 h-6 text-olive transition-colors duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] group-hover:text-bright-green"
+                  strokeWidth={1.75}
+                  aria-hidden="true"
+                />
               </span>
               <h3 className="text-navy font-bold text-lg leading-snug">{programme.name}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{programme.description}</p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -8,6 +8,16 @@ const inView = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true as const },
+};
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0, 0, 1] } },
 };
 
 const paragraphs = [
@@ -34,13 +44,19 @@ export default function WhatCohiIsSection() {
 
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10"
-          {...inView}
-          transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
         >
           {paragraphs.map((p) => (
-            <p key={p} className="text-gray-700 text-base leading-relaxed">
+            <motion.p
+              key={p}
+              className="text-gray-700 text-base leading-relaxed"
+              variants={itemVariants}
+            >
               {p}
-            </p>
+            </motion.p>
           ))}
         </motion.div>
       </div>
