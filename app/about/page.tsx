@@ -4,6 +4,7 @@ import FoundingStorySection from "@/components/sections/about/FoundingStorySecti
 import MissionVisionSection from "@/components/sections/about/MissionVisionSection";
 import AboutValuesSection from "@/components/sections/about/AboutValuesSection";
 import FounderSection from "@/components/sections/about/FounderSection";
+import TeamSection from "@/components/sections/TeamSection";
 import OrgStructureSection from "@/components/sections/about/OrgStructureSection";
 import ExpansionSection from "@/components/sections/about/ExpansionSection";
 import AboutCTASection from "@/components/sections/about/AboutCTASection";
@@ -31,6 +32,7 @@ export default function AboutPage() {
       <MissionVisionSection />
       <AboutValuesSection />
       <FounderSection />
+      <TeamSection />
       <OrgStructureSection />
       <ExpansionSection />
       <AboutCTASection />

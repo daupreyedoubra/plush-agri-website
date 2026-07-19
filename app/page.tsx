@@ -4,6 +4,7 @@ import ProblemSection from "@/components/sections/ProblemSection";
 import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
 import HowWeWorkSection from "@/components/sections/HowWeWorkSection";
 import DanhonuPilotSection from "@/components/sections/DanhonuPilotSection";
+import TeamSection from "@/components/sections/TeamSection";
 import COHIBannerSection from "@/components/sections/COHIBannerSection";
 import TwoDoorSection from "@/components/sections/TwoDoorSection";
 
@@ -30,6 +31,7 @@ export default function Home() {
       <WhatWeDoSection />
       <HowWeWorkSection />
       <DanhonuPilotSection />
+      <TeamSection />
       <COHIBannerSection />
       <TwoDoorSection />
     </>
