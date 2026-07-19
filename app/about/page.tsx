@@ -5,8 +5,6 @@ import MissionVisionSection from "@/components/sections/about/MissionVisionSecti
 import AboutValuesSection from "@/components/sections/about/AboutValuesSection";
 import FounderSection from "@/components/sections/about/FounderSection";
 import TeamSection from "@/components/sections/TeamSection";
-import OrgStructureSection from "@/components/sections/about/OrgStructureSection";
-import ExpansionSection from "@/components/sections/about/ExpansionSection";
 import AboutCTASection from "@/components/sections/about/AboutCTASection";
 
 export const metadata: Metadata = {
@@ -33,8 +31,6 @@ export default function AboutPage() {
       <AboutValuesSection />
       <FounderSection />
       <TeamSection />
-      <OrgStructureSection />
-      <ExpansionSection />
       <AboutCTASection />
     </>
   );
