@@ -20,8 +20,8 @@ export default function ContactPage() {
     <main>
       <ContactHero />
       <EmergencyBanner />
-      <ContactInfoSection />
       <ContactFormsSection />
+      <ContactInfoSection />
     </main>
   );
 }

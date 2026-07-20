@@ -2,10 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, animate, useInView, useReducedMotion } from "framer-motion";
+import { motion, animate, useInView, useReducedMotion, type Variants } from "framer-motion";
 import LocationMap from "@/components/ui/LocationMap";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
+
+const photoContainerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const photoItemVariants: Variants = {
+  hidden: { opacity: 0, x: 32 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: [0.25, 0, 0, 1] } },
+};
 
 const paragraphs = [
   "We chose Danhonu 1, Chikun LGA for its livestock-dependent community with no reliable vet access — the gap we exist to close. Since May 2026 we've run engagement sessions, farm visits, and One Health education in the local school.",
@@ -66,7 +76,7 @@ function AnimatedMetric({
         {suffix}
       </p>
       <motion.div
-        className="h-[3px] w-10 bg-bright-green rounded-full origin-left mt-3"
+        className="h-[3px] w-10 bg-sage rounded-full origin-left mt-3"
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: reduceMotion ? 0 : 1.4, ease: [0.25, 0, 0, 1] }}
@@ -122,18 +132,23 @@ export default function DanhonuPilotSection() {
 
           <motion.div
             className="lg:col-span-6 grid grid-cols-3 gap-4 lg:h-full"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.25, ease: EASE }}
+            variants={photoContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
           >
-            {photos.map((photo) => (
-              <div
+            {photos.map((photo, i) => (
+              <motion.div
                 key={photo.src}
-                className="relative card overflow-hidden aspect-[3/4] lg:aspect-auto lg:h-full"
+                variants={photoItemVariants}
+                className={`relative overflow-hidden aspect-[3/4] lg:aspect-auto lg:h-full ${
+                  i === 1
+                    ? "rounded-t-full shadow-[0_4px_24px_rgba(22,54,92,0.08)]"
+                    : "card"
+                }`}
               >
                 <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 33vw, 17vw" className="object-cover" />
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>

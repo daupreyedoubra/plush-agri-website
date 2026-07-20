@@ -26,6 +26,13 @@
   --color-dark-green: #1F4A30;
   --color-cream: #F5F0E4;
 
+  /* Soft Sage — brand-official (brief palette), introduced sitewide in the
+     design refinement pass: replaces #FAFAF8 as the light-section tint and
+     gives light cards a hover wash. sage-tint is sage laid over white at
+     ~35-45%. */
+  --color-sage: #DCE8D7;
+  --color-sage-tint: #EEF3EC;
+
   /* Typography */
   --font-sans: var(--font-figtree), sans-serif;   /* Body: Figtree, 400/500 */
   --font-heading: var(--font-poppins), sans-serif; /* Headings: Poppins, 600/700 only */

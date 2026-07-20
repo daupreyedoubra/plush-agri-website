@@ -7,7 +7,7 @@ const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 export default function ContactHero() {
   return (
-    <section className="bg-neutral pt-24 pb-20 lg:pt-32 lg:pb-28">
+    <section className="bg-white pt-24 pb-20 lg:pt-32 lg:pb-28">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.nav
           className="flex items-center gap-2 text-xs text-gray-400 mb-10 tracking-wide"

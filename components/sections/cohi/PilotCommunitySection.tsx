@@ -2,9 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, animate, useInView, useReducedMotion } from "framer-motion";
+import { motion, animate, useInView, useReducedMotion, type Variants } from "framer-motion";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
+
+const photoContainerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const photoItemVariants: Variants = {
+  hidden: { opacity: 0, x: 32 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: [0.25, 0, 0, 1] } },
+};
 
 const paragraphs = [
   "COHI is anchored in Danhonu 1, Chikun LGA. We chose it because it is a livestock-dependent community with no reliable access to veterinary care, exactly the gap this initiative exists to close.",
@@ -57,7 +67,7 @@ function AnimatedMetric({
         {suffix}
       </p>
       <motion.div
-        className="h-[3px] w-10 bg-bright-green rounded-full origin-left mt-2"
+        className="h-[3px] w-10 bg-sage rounded-full origin-left mt-2"
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: reduceMotion ? 0 : 1.4, ease: [0.25, 0, 0, 1] }}
@@ -76,7 +86,7 @@ const photos = [
 
 export default function PilotCommunitySection() {
   return (
-    <section className="bg-[#FAFAF8] py-24 lg:py-32">
+    <section className="bg-sage-tint py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label mb-6"
@@ -115,20 +125,26 @@ export default function PilotCommunitySection() {
 
           <motion.div
             className="lg:col-span-6 grid grid-cols-2 gap-4"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.25, ease: EASE }}
+            variants={photoContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
           >
-            <div className="relative card overflow-hidden row-span-2 aspect-[3/4]">
+            <motion.div
+              variants={photoItemVariants}
+              className="relative card overflow-hidden row-span-2 aspect-[3/4]"
+            >
               <Image src={photos[0].src} alt={photos[0].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </div>
-            <div className="relative card overflow-hidden aspect-square">
+            </motion.div>
+            <motion.div
+              variants={photoItemVariants}
+              className="relative overflow-hidden aspect-square rounded-t-full shadow-[0_4px_24px_rgba(22,54,92,0.08)]"
+            >
               <Image src={photos[1].src} alt={photos[1].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </div>
-            <div className="relative card overflow-hidden aspect-square">
+            </motion.div>
+            <motion.div variants={photoItemVariants} className="relative card overflow-hidden aspect-square">
               <Image src={photos[2].src} alt={photos[2].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 

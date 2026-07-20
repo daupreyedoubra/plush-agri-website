@@ -4,7 +4,6 @@ import WhatCohiIsSection from "@/components/sections/cohi/WhatCohiIsSection";
 import ApproachSection from "@/components/sections/cohi/ApproachSection";
 import PilotCommunitySection from "@/components/sections/cohi/PilotCommunitySection";
 import PartnerCTASection from "@/components/sections/cohi/PartnerCTASection";
-import CohiMotionProvider from "@/components/sections/cohi/CohiMotionProvider";
 
 export const metadata: Metadata = {
   title: "Community One Health Initiative | Plush Agri Solutions",
@@ -20,13 +19,11 @@ export const metadata: Metadata = {
 export default function CohiPage() {
   return (
     <main>
-      <CohiMotionProvider>
-        <CohiHero />
-        <WhatCohiIsSection />
-        <ApproachSection />
-        <PilotCommunitySection />
-        <PartnerCTASection />
-      </CohiMotionProvider>
+      <CohiHero />
+      <WhatCohiIsSection />
+      <ApproachSection />
+      <PilotCommunitySection />
+      <PartnerCTASection />
     </main>
   );
 }

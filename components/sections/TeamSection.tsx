@@ -42,7 +42,7 @@ const team: TeamMember[] = [
 
 export default function TeamSection() {
   return (
-    <section className="bg-[#FAFAF8] py-24 lg:py-32">
+    <section className="bg-sage-tint py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label mb-6"
@@ -68,12 +68,12 @@ export default function TeamSection() {
           {team.map((member, i) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -28 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
             >
-              <div className="card group overflow-hidden bg-white transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:-translate-y-[5px] hover:shadow-[0_16px_36px_rgba(22,54,92,0.18)] motion-reduce:hover:translate-y-0">
+              <div className="card group overflow-hidden bg-white transition-[transform,box-shadow,background-color] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:-translate-y-[5px] hover:bg-sage hover:shadow-[0_16px_36px_rgba(22,54,92,0.18)] motion-reduce:hover:translate-y-0">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   {member.photo ? (
                     <Image

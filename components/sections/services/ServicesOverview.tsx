@@ -86,8 +86,8 @@ export default function ServicesOverview() {
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.04, ease: EASE }}
                 style={{ zIndex: isActive ? 40 : 10 + i }}
@@ -96,7 +96,7 @@ export default function ServicesOverview() {
                   href={`#${service.id}`}
                   aria-label={`Jump to ${service.name}`}
                   className={[
-                    "card group block h-full overflow-hidden bg-white border transition-colors",
+                    "card group block h-full overflow-hidden bg-white border transition-colors duration-[250ms] hover:bg-sage",
                     isActive ? "border-bright-green" : "border-accent",
                   ].join(" ")}
                   animate={lifted}
@@ -106,7 +106,11 @@ export default function ServicesOverview() {
                   onFocus={() => setActive(i)}
                   onBlur={() => setActive(null)}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div
+                    className={`relative aspect-[4/3] overflow-hidden ${
+                      i === 0 ? "rounded-t-full" : ""
+                    }`}
+                  >
                     {photo ? (
                       <Image
                         src={photo.src}

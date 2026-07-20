@@ -39,7 +39,7 @@ export default function FounderSection() {
             {...inView}
             transition={{ duration: 0.6, ease: EASE }}
           >
-            <div className="relative card overflow-hidden aspect-[3/4]">
+            <div className="relative overflow-hidden aspect-[3/4] rounded-t-full shadow-[0_4px_24px_rgba(22,54,92,0.08)]">
               <Image
                 src="/images/Rukkayah.jpeg"
                 alt="Dr. Rukayyah Abdulsalam, Founder of Plush Agri Solutions"

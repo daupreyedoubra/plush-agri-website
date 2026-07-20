@@ -49,14 +49,14 @@ export default function WhatWeDoSection() {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -28 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
               >
                 <Link
                   href="/services"
-                  className="card group block h-full p-7 bg-[#FAFAF8] text-navy transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:-translate-y-[5px] hover:shadow-[0_16px_36px_rgba(22,54,92,0.18)] motion-reduce:hover:translate-y-0"
+                  className="card group block h-full p-7 bg-sage-tint text-navy transition-[transform,box-shadow,background-color] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:-translate-y-[5px] hover:bg-sage hover:shadow-[0_16px_36px_rgba(22,54,92,0.18)] motion-reduce:hover:translate-y-0"
                 >
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-olive/15 transition-colors duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] group-hover:bg-bright-green/20">
                     <Icon

@@ -35,10 +35,10 @@ const containerVariants: Variants = {
 };
 
 const colVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, x: 28 },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: { duration: 0.55, ease: [0.25, 0, 0, 1] },
   },
 };
@@ -56,7 +56,7 @@ interface Props {
 
 export default function ServiceDetailBlock({ service, isEven }: Props) {
   const onNavy = NAVY_IDS.has(service.id);
-  const sectionBg = onNavy ? "bg-navy" : isEven ? "bg-white" : "bg-[#FAFAF8]";
+  const sectionBg = onNavy ? "bg-navy" : isEven ? "bg-white" : "bg-sage-tint";
   const FallbackIcon = FALLBACK_ICONS[service.id];
 
   return (
@@ -116,8 +116,8 @@ export default function ServiceDetailBlock({ service, isEven }: Props) {
           {/* Media: real field photo, or on-brand icon panel when none fits */}
           <motion.div
             className="lg:col-span-4 mb-10 lg:mb-0"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
           >

@@ -9,11 +9,20 @@ const containerVariants: Variants = {
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
+const cardVariantsLeft: Variants = {
+  hidden: { opacity: 0, x: -28 },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.25, 0, 0, 1] },
+  },
+};
+
+const cardVariantsRight: Variants = {
+  hidden: { opacity: 0, x: 28 },
+  visible: {
+    opacity: 1,
+    x: 0,
     transition: { duration: 0.6, ease: [0.25, 0, 0, 1] },
   },
 };
@@ -26,7 +35,7 @@ const inView = {
 
 export default function MissionVisionSection() {
   return (
-    <section className="bg-[#FAFAF8] py-24 lg:py-32">
+    <section className="bg-sage-tint py-24 lg:py-32">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Section Label */}
         <motion.p
@@ -55,7 +64,7 @@ export default function MissionVisionSection() {
           {/* Mission */}
           <motion.div
             className="card bg-white p-10 lg:p-12"
-            variants={cardVariants}
+            variants={cardVariantsLeft}
           >
             <span className="block w-8 h-0.5 bg-olive mb-8" aria-hidden="true" />
             <h3 className="text-xs font-semibold tracking-[0.25em] uppercase text-olive mb-5">
@@ -72,7 +81,7 @@ export default function MissionVisionSection() {
           {/* Vision */}
           <motion.div
             className="card bg-white p-10 lg:p-12"
-            variants={cardVariants}
+            variants={cardVariantsRight}
           >
             <span className="block w-8 h-0.5 bg-navy mb-8" aria-hidden="true" />
             <h3 className="text-xs font-semibold tracking-[0.25em] uppercase text-navy mb-5">

@@ -101,7 +101,7 @@ export default function LocationMap() {
           </p>
           <span className="shrink-0 inline-flex items-center gap-1.5 bg-navy text-white text-[10px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full">
             <span
-              className={`w-1.5 h-1.5 rounded-full bg-bright-green ${reduceMotion ? "" : "animate-pulse"}`}
+              className={`w-1.5 h-1.5 rounded-full bg-sage ${reduceMotion ? "" : "animate-pulse"}`}
               aria-hidden="true"
             />
             Live
@@ -115,7 +115,7 @@ export default function LocationMap() {
             transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : 0.15 }}
             className="px-5 pb-5 pt-3 h-[calc(100%-60px)] flex flex-col gap-2"
           >
-            <div className="relative flex-1 rounded-lg overflow-hidden border border-accent bg-[#FAFAF8]">
+            <div className="relative flex-1 rounded-lg overflow-hidden border border-accent bg-sage-tint">
               <iframe
                 src={OSM_EMBED_URL}
                 className="w-full h-full border-0"

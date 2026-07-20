@@ -13,7 +13,7 @@ const inView = {
 
 export default function ContactInfoSection() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-sage py-20 lg:py-28">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-16">
 
@@ -134,7 +134,7 @@ export default function ContactInfoSection() {
             {...inView}
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
           >
-            <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden border border-accent bg-neutral">
+            <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden border border-accent bg-white">
               <iframe
                 src="https://maps.google.com/maps?q=Kaduna+State,+Nigeria&z=10&output=embed"
                 width="100%"

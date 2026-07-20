@@ -100,7 +100,7 @@ function GeneralForm() {
 
 export default function ContactFormsSection() {
   return (
-    <section className="bg-neutral py-20 lg:py-28">
+    <section className="bg-white py-20 lg:py-28">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary mb-8"
