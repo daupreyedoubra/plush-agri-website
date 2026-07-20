@@ -59,7 +59,9 @@
       "Bash(npm ls *)",
       "PowerShell(npm run *)",
       "PowerShell(git add *)",
-      "PowerShell(Get-NetTCPConnection *)"
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(echo \"---exit code: $?---\")",
+      "Bash(echo \"tsc exit: $?\")"
     ]
   }
 }
