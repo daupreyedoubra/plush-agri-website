@@ -73,8 +73,8 @@ const cardVariants: Variants = {
 };
 
 const inView = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 20 },
+  whileInView: { y: 0 },
   viewport: { once: true as const },
 };
 
@@ -119,8 +119,7 @@ export default function TargetBeneficiaries() {
           {beneficiaries.map((b) => (
             <motion.div
               key={b.type}
-              className="bg-white border-l-4 p-7 flex flex-col gap-4"
-              style={{ borderLeftColor: "#5E8B3D" }}
+              className="bg-white border border-accent p-7 flex flex-col gap-4"
               variants={cardVariants}
             >
               {/* Icon */}

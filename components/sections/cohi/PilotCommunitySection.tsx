@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, animate, useInView, useReducedMotion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+import AnimatedMetric from "@/components/ui/AnimatedMetric";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -29,55 +29,6 @@ const metrics = [
   { value: 7, prefix: "₦", suffix: "M", label: "project funds managed" },
 ];
 
-function AnimatedMetric({
-  value,
-  prefix,
-  suffix,
-  label,
-}: {
-  value: number;
-  prefix: string;
-  suffix: string;
-  label: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const reduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    if (reduceMotion) {
-      setDisplay(value);
-      return;
-    }
-    const controls = animate(0, value, {
-      duration: 1.4,
-      ease: [0.25, 0, 0, 1],
-      onUpdate: (v) => setDisplay(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [isInView, value, reduceMotion]);
-
-  return (
-    <div ref={ref}>
-      <p className="num-tabular text-navy font-bold" style={{ fontSize: "2rem" }}>
-        {prefix}
-        {display}
-        {suffix}
-      </p>
-      <motion.div
-        className="h-[3px] w-10 bg-sage rounded-full origin-left mt-2"
-        initial={{ scaleX: 0 }}
-        animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 1.4, ease: [0.25, 0, 0, 1] }}
-      />
-      <p className="text-gray-600 text-sm mt-2">{label}</p>
-      <p className="text-gray-400 text-xs mt-1">as at July 2026</p>
-    </div>
-  );
-}
-
 const photos = [
   { src: "/images/cohi-school-05.jpeg", alt: "Plush Agri Solutions team with pupils and staff at a One Health education session in Danhonu 1" },
   { src: "/images/_MG_2860.jpg", alt: "Community dialogue session with farmers in Danhonu 1" },
@@ -90,20 +41,20 @@ export default function PilotCommunitySection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           Pilot & Founding Community
         </motion.p>
 
         <motion.h2
           className="text-navy text-3xl lg:text-4xl mb-14 max-w-xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+          transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
         >
           Danhonu 1, Chikun LGA.
         </motion.h2>
@@ -111,10 +62,10 @@ export default function PilotCommunitySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
           <motion.div
             className="lg:col-span-6 space-y-5"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
+            transition={{ duration: 0.4, delay: 0.15, ease: EASE }}
           >
             {paragraphs.map((p) => (
               <p key={p} className="text-gray-700 text-base leading-relaxed max-w-[65ch]">
@@ -150,10 +101,10 @@ export default function PilotCommunitySection() {
 
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-12 border-t border-accent"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+          transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
         >
           {metrics.map((m) => (
             <AnimatedMetric
@@ -162,6 +113,8 @@ export default function PilotCommunitySection() {
               prefix={m.prefix}
               suffix={m.suffix}
               label={m.label}
+              size="sm"
+              footnote="as at July 2026"
             />
           ))}
         </motion.div>

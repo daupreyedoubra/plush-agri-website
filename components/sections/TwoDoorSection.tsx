@@ -11,10 +11,10 @@ export default function TwoDoorSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.h2
           className="text-navy font-bold text-3xl lg:text-4xl mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           Work with us.
         </motion.h2>
@@ -23,10 +23,10 @@ export default function TwoDoorSection() {
           {/* For Partners */}
           <motion.div
             className="card bg-navy text-white p-10 lg:p-12 flex flex-col"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: EASE }}
+            transition={{ duration: 0.4, ease: EASE }}
           >
             <p className="label !text-bright-green mb-6">For Partners</p>
             <p className="text-white/90 text-lg leading-relaxed mb-10 flex-1">
@@ -43,10 +43,10 @@ export default function TwoDoorSection() {
           {/* For Farmers */}
           <motion.div
             className="card bg-dark-green text-white p-10 lg:p-12 flex flex-col"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+            transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
           >
             <p className="label !text-bright-green mb-6">For Farmers</p>
             <p className="text-white/90 text-lg leading-relaxed mb-10 flex-1">

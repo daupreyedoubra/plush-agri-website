@@ -153,6 +153,30 @@ h1 {
   transform: scale(0.97);
 }
 
+/* Mobile nav overlay must reliably cover the full screen below the navbar,
+   including on mobile Safari where 100vh can exceed the visible viewport
+   when the address bar is showing. dvh is the correct unit; vh is kept as
+   a fallback for browsers that don't support it yet (an unsupported value
+   is ignored, so the earlier declaration is what applies there). */
+.mobile-menu-overlay {
+  min-height: calc(100vh - 5rem);
+  min-height: calc(100dvh - 5rem);
+}
+
+/* Accordion expand/collapse (Services page) — pure CSS grid-template-rows
+   transition, no JS height measurement and no animation library. */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms cubic-bezier(0.25, 0, 0, 1);
+}
+.accordion-panel.is-open {
+  grid-template-rows: 1fr;
+}
+.accordion-panel > div {
+  overflow: hidden;
+}
+
 /* Skip to content — visually hidden until focused by keyboard */
 .skip-to-content {
   position: absolute;

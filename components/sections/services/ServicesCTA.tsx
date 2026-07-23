@@ -6,8 +6,8 @@ import CtaButton from "@/components/ui/CtaButton";
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 const inView = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 20 },
+  whileInView: { y: 0 },
   viewport: { once: true as const },
 };
 

@@ -38,6 +38,18 @@ const team: TeamMember[] = [
     credential: "",
     initials: "MY",
   },
+  {
+    name: "Doubra",
+    role: "Brand and Communications Lead",
+    credential: "",
+    photo: "/images/Doubra.png",
+  },
+  {
+    name: "Maryam",
+    role: "Field Operations Coordinator",
+    credential: "",
+    photo: "/images/Maryam.jpeg",
+  },
 ];
 
 export default function TeamSection() {
@@ -46,20 +58,20 @@ export default function TeamSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           Our Team
         </motion.p>
 
         <motion.h2
           className="text-navy font-bold text-3xl lg:text-4xl mb-14 max-w-xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+          transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
         >
           The people behind the work.
         </motion.h2>

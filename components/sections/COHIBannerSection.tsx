@@ -13,10 +13,10 @@ export default function COHIBannerSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <motion.div
             className="lg:col-span-7"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: EASE }}
+            transition={{ duration: 0.4, ease: EASE }}
           >
             <p className="label !text-bright-green mb-6">Flagship Initiative</p>
             <h2 className="text-white text-3xl lg:text-4xl mb-6 max-w-lg">
@@ -35,10 +35,10 @@ export default function COHIBannerSection() {
 
           <motion.div
             className="lg:col-span-5"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
+            transition={{ duration: 0.4, delay: 0.15, ease: EASE }}
           >
             <div className="relative card overflow-hidden aspect-[4/3]">
               <Image

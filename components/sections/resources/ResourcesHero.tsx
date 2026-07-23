@@ -25,17 +25,17 @@ export default function ResourcesHero() {
           <div className="lg:col-span-7">
             <motion.p
               className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
             >
               Resources
             </motion.p>
             <motion.h1
               className="text-4xl lg:text-6xl font-bold text-primary leading-[1.1] tracking-tight"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+              initial={{ y: 24 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
               Field knowledge.
               <br />
@@ -45,9 +45,9 @@ export default function ResourcesHero() {
           <div className="lg:col-span-5 mt-10 lg:mt-0">
             <motion.p
               className="text-base lg:text-lg text-gray-600 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35, ease: EASE }}
             >
               Practical guidance on animal health, farm management, disease
               prevention, and biosecurity, written for farmers in Northern

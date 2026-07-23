@@ -53,8 +53,8 @@ const stepVariants: Variants = {
 };
 
 const inView = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 24 },
+  whileInView: { y: 0 },
   viewport: { once: true as const },
 };
 
@@ -91,8 +91,8 @@ export default function SolutionSection() {
           {steps.map((step) => (
             <motion.div
               key={step.number}
-              className="p-8 border-l-4"
-              style={{ backgroundColor: "#F6F2E8", borderColor: "#5E8B3D" }}
+              className="p-8 border border-accent"
+              style={{ backgroundColor: "#F6F2E8" }}
               variants={stepVariants}
             >
               {/* Icon */}

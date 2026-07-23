@@ -23,6 +23,8 @@ export interface BlogPost {
   author: string;
   /** Authored but not yet cleared for public launch. */
   draft: boolean;
+  /** Optional topic tag shown alongside the date, e.g. "Education". */
+  category?: string;
   /** Real field photo, only where one genuinely fits the subject. */
   image?: BlogImage;
   body: Block[];
@@ -38,7 +40,7 @@ export const posts: BlogPost[] = [
     excerpt:
       "The medicines we rely on to keep animals healthy only work if we use them carefully. Here is what antimicrobial resistance means for your farm, and the everyday habits that protect it.",
     author: AUTHOR,
-    draft: true,
+    draft: false,
     body: [
       {
         type: "p",
@@ -93,7 +95,7 @@ export const posts: BlogPost[] = [
     excerpt:
       "For too long, a vet was someone you called only after an animal was already sick. The more useful model turns that around, and it starts with the ordinary routines of a healthy farm.",
     author: AUTHOR,
-    draft: true,
+    draft: false,
     image: {
       src: "/images/_MG_2872.jpg",
       alt: "Farmers listening during a Plush Agri Solutions advisory session in Danhonu 1",
@@ -156,7 +158,7 @@ export const posts: BlogPost[] = [
     excerpt:
       "When disease breaks out, the animals, the people, and the shared environment are all part of one story. One Health is a way of investigating that reads the whole picture instead of a single page.",
     author: AUTHOR,
-    draft: true,
+    draft: false,
     image: {
       src: "/images/cohi-school-04.jpeg",
       alt: "Dr. Rukayyah Abdulsalam leading a One Health education session with schoolchildren in Danhonu 1",
@@ -205,6 +207,110 @@ export const posts: BlogPost[] = [
       {
         type: "p",
         text: "The goal of a One Health investigation is not only to explain what happened, but to reduce the chance of it happening again. When you understand how a disease moved between animals, people, and their surroundings, you can act at the point that protects all three. That is the real value of looking at the whole system: the response fits the problem, because the problem was finally seen in full.",
+      },
+    ],
+  },
+  {
+    slug: "what-farmers-should-know-about-antimicrobial-resistance",
+    title: "What Every Northern Nigerian Farmer Should Know About Antimicrobial Resistance",
+    date: "2026-05-15",
+    excerpt:
+      "Antimicrobial resistance is one of the fastest-growing threats to both animal and human health globally. Here is what it means for your farm and what you can do about it.",
+    author: AUTHOR,
+    draft: false,
+    category: "Education",
+    body: [
+      {
+        type: "p",
+        text: "Antimicrobial resistance does not announce itself. It builds quietly, one unnecessary dose at a time, until the day a medicine that used to work simply does not anymore. For farmers across Northern Nigeria, that day can mean losing an animal that a proper treatment should have saved.",
+      },
+      {
+        type: "h2",
+        text: "What is actually happening",
+      },
+      {
+        type: "p",
+        text: "Every antibiotic or antiparasitic you use puts pressure on the germs it is meant to kill. Most die. A few tougher ones survive, and if they are allowed to survive often enough, they multiply. Over time, the same medicine that once cleared an infection in days stops working at all. This is not the animal building resistance. It is the germs.",
+      },
+      {
+        type: "h2",
+        text: "Why this is your problem too",
+      },
+      {
+        type: "p",
+        text: "Resistant germs do not stay put. They move through shared water troughs, feed, and close contact between animals, and sometimes they move between animals and the people who handle them. A shortcut taken on one farm can become a shared problem for a whole community of farmers.",
+      },
+      {
+        type: "h2",
+        text: "What you can do starting today",
+      },
+      {
+        type: "p",
+        text: "Only treat when there is a real reason to, and get a proper diagnosis first. Guessing at a dose wastes money and trains germs to survive. When a vet prescribes a course, finish it completely, even once the animal looks better, because stopping early leaves the strongest germs behind. Buy your inputs from a source you trust: a fake or weak product treats nothing and still does the damage of training resistance. And invest in prevention, clean housing, clean water, proper spacing, and vaccination, because an animal that does not get sick is an animal that never needs the medicine in the first place.",
+      },
+      {
+        type: "p",
+        text: "None of this requires new equipment, only a habit of asking the right question before every treatment. If you are unsure whether a treatment is necessary or correct, talk to us before you administer it. Reach the Plush Agri Solutions team for a farm visit or a straight answer, and let's keep the medicines you depend on working for the herds you will depend on next season.",
+      },
+    ],
+  },
+  {
+    slug: "five-biosecurity-measures-poultry-farmers",
+    title: "Five Biosecurity Measures Every Poultry Farmer Can Implement Today",
+    date: "2026-05-08",
+    excerpt:
+      "Preventing disease on a poultry farm does not require expensive equipment. These five steps can be started immediately with what you already have.",
+    author: AUTHOR,
+    draft: false,
+    category: "Practical Tips",
+    body: [
+      {
+        type: "p",
+        text: "Disease does not usually arrive on a poultry farm with warning. It arrives on a visitor's boots, in a crate of new birds, or on a feed bag from an uncertain source. The good news is that most of the risk can be closed off without spending money you do not have. Here are five measures you can start today.",
+      },
+      {
+        type: "h2",
+        text: "1. Control who and what enters the pen",
+      },
+      {
+        type: "p",
+        text: "Limit visitors to people who genuinely need to be there, and keep a simple rule: clean footwear or a footbath at the entrance, every time, no exceptions. Most disease introduced from outside a farm arrives on feet, tyres, or hands, not through the air.",
+      },
+      {
+        type: "h2",
+        text: "2. Separate new birds before they join the flock",
+      },
+      {
+        type: "p",
+        text: "Any new bird, whether bought, gifted, or returned from a show, should be kept apart from the rest of your flock for at least two weeks. A bird that looks healthy can still be carrying something that only shows itself under the stress of a new environment.",
+      },
+      {
+        type: "h2",
+        text: "3. Keep feed and water genuinely clean",
+      },
+      {
+        type: "p",
+        text: "Store feed off the ground and away from rodents and wild birds, and clean water containers regularly rather than simply topping them up. Contaminated feed and water are two of the fastest routes disease takes through a flock.",
+      },
+      {
+        type: "h2",
+        text: "4. Watch your birds daily, and act on what you see",
+      },
+      {
+        type: "p",
+        text: "A few minutes of real observation each day, checking appetite, droppings, and general behaviour, catches a problem while it is still one or two birds, not the whole house. Do not wait for a dramatic sign before you ask for help.",
+      },
+      {
+        type: "h2",
+        text: "5. Clean and rest the housing between cycles",
+      },
+      {
+        type: "p",
+        text: "Give housing a proper clean-out between batches, and where possible, let it rest empty for a period before the next group of birds arrives. Disease organisms that linger in bedding and structures are far easier to break than ones already established in a living flock.",
+      },
+      {
+        type: "p",
+        text: "None of these measures require a large budget, only consistency. If you would like a biosecurity assessment specific to your farm's layout, reach the Plush Agri Solutions team and we will walk it with you.",
       },
     ],
   },

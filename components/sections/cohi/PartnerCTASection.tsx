@@ -11,30 +11,30 @@ export default function PartnerCTASection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 text-center">
         <motion.p
           className="label !text-bright-green mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           Support COHI
         </motion.p>
 
         <motion.h2
           className="text-white text-3xl lg:text-4xl mb-6 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+          transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
         >
           Help us take One Health to the next community.
         </motion.h2>
 
         <motion.p
           className="text-white/85 text-base lg:text-lg leading-relaxed max-w-xl mx-auto mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
+          transition={{ duration: 0.4, delay: 0.15, ease: EASE }}
         >
           Plush Agri Solutions welcomes government institutions, development
           partners, and NGOs who want to co-design and fund community One
@@ -43,10 +43,10 @@ export default function PartnerCTASection() {
 
         <motion.div
           className="flex flex-col items-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
+          transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
         >
           <CtaButton href="mailto:plushagrisolutions@gmail.com">
             Partner With Us

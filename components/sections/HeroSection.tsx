@@ -5,12 +5,14 @@ import { motion, type Variants } from "framer-motion";
 import heroImage from "@/public/images/hero.jpg";
 import CtaButton from "@/components/ui/CtaButton";
 
+// No opacity fade: the H1 and tagline must be fully legible the instant
+// they paint, on any connection speed or direct URL entry, so only
+// position animates in — text is never invisible or mid-transition.
 const fadeUp = (delay: number): Variants => ({
-  hidden: { opacity: 0, y: 40 },
+  hidden: { y: 24 },
   visible: {
-    opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay, ease: [0.25, 0, 0, 1] },
+    transition: { duration: 0.4, delay, ease: [0.25, 0, 0, 1] },
   },
 });
 

@@ -27,10 +27,10 @@ export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           Latest Posts
         </motion.p>
@@ -82,7 +82,7 @@ export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
                   {/* Body */}
                   <div className="flex flex-1 flex-col p-6">
                     <p className="text-xs font-semibold tracking-[0.15em] uppercase text-olive mb-3">
-                      {formatDate(post.date)}
+                      {post.category ? `${post.category} · ${formatDate(post.date)}` : formatDate(post.date)}
                     </p>
                     <h2 className="font-heading text-xl font-semibold text-navy leading-snug mb-3 group-hover:text-olive transition-colors">
                       {post.title}

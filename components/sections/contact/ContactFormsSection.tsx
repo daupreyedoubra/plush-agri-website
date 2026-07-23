@@ -104,10 +104,10 @@ export default function ContactFormsSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           Send a Message
         </motion.p>

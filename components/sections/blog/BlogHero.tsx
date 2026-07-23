@@ -34,18 +34,18 @@ export default function BlogHero() {
           <div className="lg:col-span-7">
             <motion.p
               className="label !text-bright-green mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
             >
               Field Notes
             </motion.p>
 
             <motion.h1
               className="text-white"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+              initial={{ y: 24 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
               Practical writing on
               <br />
@@ -56,9 +56,9 @@ export default function BlogHero() {
           <div className="lg:col-span-5 mt-10 lg:mt-0">
             <motion.p
               className="text-base lg:text-lg text-white/80 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35, ease: EASE }}
             >
               Plain-language notes from the field on livestock health,
               preventive care, and the everyday decisions that keep a farm

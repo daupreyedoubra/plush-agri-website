@@ -25,10 +25,10 @@ export default function ProblemSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="text-white text-2xl lg:text-3xl font-bold leading-snug max-w-2xl mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           Expert guidance reaches smallholder farmers late, generic, or not
           at all.

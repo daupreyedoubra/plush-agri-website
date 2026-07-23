@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { services } from "@/lib/services";
 import ServicesHero from "@/components/sections/services/ServicesHero";
 import ServicesOverview from "@/components/sections/services/ServicesOverview";
-import ServiceDetailBlock from "@/components/sections/services/ServiceDetailBlock";
+import ServicesAccordion from "@/components/sections/services/ServicesAccordion";
 import ServicesCTA from "@/components/sections/services/ServicesCTA";
 
 export const metadata: Metadata = {
@@ -34,13 +34,7 @@ export default function ServicesPage() {
     <>
       <ServicesHero />
       <ServicesOverview />
-      {services.map((service, i) => (
-        <ServiceDetailBlock
-          key={service.id}
-          service={service}
-          isEven={i % 2 === 0}
-        />
-      ))}
+      <ServicesAccordion services={services} />
       <ServicesCTA />
     </>
   );

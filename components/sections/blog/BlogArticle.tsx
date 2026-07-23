@@ -9,8 +9,8 @@ import { formatDate, type BlogPost } from "@/lib/blog";
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 const inView = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 20 },
+  whileInView: { y: 0 },
   viewport: { once: true as const },
 };
 
@@ -39,27 +39,27 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           <div className="max-w-[68ch]">
             <motion.p
               className="label !text-bright-green mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
             >
-              {formatDate(post.date)}
+              {post.category ? `${post.category} · ${formatDate(post.date)}` : formatDate(post.date)}
             </motion.p>
 
             <motion.h1
               className="text-white text-3xl lg:text-5xl font-bold leading-[1.15]"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+              initial={{ y: 24 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
               {post.title}
             </motion.h1>
 
             <motion.p
               className="mt-6 text-sm text-white/60"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35, ease: EASE }}
             >
               By {post.author}
             </motion.p>

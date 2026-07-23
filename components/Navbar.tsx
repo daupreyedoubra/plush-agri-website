@@ -100,25 +100,26 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer — full-screen cream menu */}
+      {/* Mobile Drawer — solid Field Authority green, full opacity so hero
+          content can never bleed through, even mid-transition. */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="lg:hidden fixed inset-0 top-20 z-50 bg-sage-tint overflow-y-auto"
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="lg:hidden fixed inset-x-0 top-20 z-[9999] bg-dark-green overflow-y-auto mobile-menu-overlay"
           >
             <div className="px-6 py-8 flex flex-col gap-1 min-h-full">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`py-4 text-xl border-b border-accent/50 transition-colors ${
+                  className={`py-4 text-xl border-b border-white/15 transition-colors ${
                     pathname === link.href
-                      ? "text-navy font-semibold"
-                      : "text-gray-700 font-medium hover:text-navy"
+                      ? "text-white font-semibold"
+                      : "text-cream/85 font-medium hover:text-white"
                   }`}
                 >
                   {link.label}

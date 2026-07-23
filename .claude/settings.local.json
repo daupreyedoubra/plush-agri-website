@@ -61,7 +61,9 @@
       "PowerShell(git add *)",
       "PowerShell(Get-NetTCPConnection *)",
       "Bash(echo \"---exit code: $?---\")",
-      "Bash(echo \"tsc exit: $?\")"
+      "Bash(echo \"tsc exit: $?\")",
+      "Bash(powershell -Command \"\\(Invoke-WebRequest -Uri http://localhost:3000/partnerships -UseBasicParsing\\).StatusCode\")",
+      "Bash(grep -rln \"className=\\\\\"card\\\\|className={\\\\`.*\\\\bcard\\\\b\\\\|\\\\\"card \\\\|card group\\\\|card overflow\" \"/c/Users/HP/my-website/plush-agri-website/components\")"
     ]
   }
 }

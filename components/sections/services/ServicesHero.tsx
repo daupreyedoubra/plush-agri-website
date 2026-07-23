@@ -34,18 +34,18 @@ export default function ServicesHero() {
           <div className="lg:col-span-7">
             <motion.p
               className="label !text-bright-green mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
             >
               Services
             </motion.p>
 
             <motion.h1
               className="text-white"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+              initial={{ y: 24 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
               Practical services.
               <br />
@@ -56,9 +56,9 @@ export default function ServicesHero() {
           <div className="lg:col-span-5 mt-10 lg:mt-0">
             <motion.p
               className="text-base lg:text-lg text-white/80 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35, ease: EASE }}
             >
               Ten services, all field-tested. Each one designed to solve a
               specific problem that farmers in Northern Nigeria face every

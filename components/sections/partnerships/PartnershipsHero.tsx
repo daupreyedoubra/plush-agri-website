@@ -35,17 +35,17 @@ export default function PartnershipsHero() {
           <div className="lg:col-span-8">
             <motion.p
               className="text-xs font-semibold tracking-[0.25em] uppercase text-white/40 mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
             >
               Partnerships
             </motion.p>
             <motion.h1
               className="text-4xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+              initial={{ y: 24 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
               Built for collaboration.
               <br />
@@ -55,9 +55,9 @@ export default function PartnershipsHero() {
           <div className="lg:col-span-4 mt-10 lg:mt-0">
             <motion.p
               className="text-base text-white/70 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35, ease: EASE }}
             >
               PAS brings technical credibility, genuine community access, and a
               functioning evidence framework to every partnership. We are
