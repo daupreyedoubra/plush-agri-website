@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import LocationMap from "@/components/ui/LocationMap";
 import AnimatedMetric from "@/components/ui/AnimatedMetric";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
@@ -97,34 +96,24 @@ export default function DanhonuPilotSection() {
           </motion.div>
         </div>
 
-        {/* Metrics + location, aligned in one row */}
+        {/* Metrics, aligned in one row */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start pt-12 border-t border-accent"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-accent"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
         >
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-8">
-            {metrics.map((m) => (
-              <AnimatedMetric
-                key={m.label}
-                value={m.value}
-                prefix={m.prefix}
-                suffix={m.suffix}
-                label={m.label}
-                size="lg"
-              />
-            ))}
-          </div>
-
-          <div className="lg:col-span-5 flex flex-col items-start gap-2">
-            <p className="label">This is where we work</p>
-            <LocationMap />
-            <p className="text-gray-600 text-sm mt-1">
-              Danhonu 1, Chikun LGA — our pilot and founding community.
-            </p>
-          </div>
+          {metrics.map((m) => (
+            <AnimatedMetric
+              key={m.label}
+              value={m.value}
+              prefix={m.prefix}
+              suffix={m.suffix}
+              label={m.label}
+              size="lg"
+            />
+          ))}
         </motion.div>
       </div>
     </section>

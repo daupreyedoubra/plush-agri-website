@@ -57,7 +57,16 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li>GF11 Nakadi Plaza, Millennium City, Kaduna State</li>
+              <li>
+                <a
+                  href="https://www.google.com/maps/search/Millennium+City+Kaduna+Nigeria"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  GF11 Nakadi Plaza, Millennium City, Kaduna State
+                </a>
+              </li>
               <li>
                 <a
                   href="mailto:plushagrisolutions@gmail.com"

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import LocationMap from "@/components/ui/LocationMap";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -15,10 +14,10 @@ export default function ContactInfoSection() {
   return (
     <section className="bg-sage py-20 lg:py-28">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-16">
+        <div className="max-w-xl mx-auto lg:mx-0">
 
           {/* Contact details */}
-          <div className="lg:col-span-5 mb-12 lg:mb-0">
+          <div>
             <motion.p
               className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary mb-8"
               {...inView}
@@ -35,7 +34,7 @@ export default function ContactInfoSection() {
               {/* WhatsApp — most prominent */}
               <div>
                 <a
-                  href="https://wa.me/2348087702906?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20vet."
+                  href="https://wa.me/2348087702906?text=Hello%2C%20can%20I%20speak%20with%20a%20Vet%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-[#25D366] text-white font-semibold text-sm px-6 h-12 transition-opacity hover:opacity-90"
@@ -80,12 +79,6 @@ export default function ContactInfoSection() {
                 </div>
               </div>
 
-              {/* Find us */}
-              <div>
-                <p className="text-xs font-semibold tracking-wide uppercase text-primary mb-3">Find Us</p>
-                <LocationMap />
-              </div>
-
               {/* Social links */}
               <div>
                 <p className="text-xs font-semibold tracking-wide uppercase text-primary mb-3">Follow</p>
@@ -127,29 +120,6 @@ export default function ContactInfoSection() {
               </div>
             </motion.div>
           </div>
-
-          {/* Map */}
-          <motion.div
-            className="lg:col-span-7"
-            {...inView}
-            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-          >
-            <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden border border-accent bg-white">
-              <iframe
-                src="https://maps.google.com/maps?q=Kaduna+State,+Nigeria&z=10&output=embed"
-                width="100%"
-                height="100%"
-                loading="lazy"
-                title="Plush Agri Solutions, Kaduna State, Northern Nigeria"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full border-0 grayscale"
-                aria-label="Map showing Kaduna State, Northern Nigeria, location of Plush Agri Solutions"
-              />
-            </div>
-            <p className="mt-3 text-xs text-gray-400">
-              Based in Kaduna State · Serving Northern Nigeria
-            </p>
-          </motion.div>
         </div>
       </div>
     </section>

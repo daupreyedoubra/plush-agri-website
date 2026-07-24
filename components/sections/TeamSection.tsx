@@ -33,12 +33,6 @@ const team: TeamMember[] = [
     photo: "/images/Emmanuel.jpeg",
   },
   {
-    name: "Mujahid Yahaya",
-    role: "Field Assistant",
-    credential: "",
-    initials: "MY",
-  },
-  {
     name: "Doubra",
     role: "Brand and Communications Lead",
     credential: "",
@@ -49,6 +43,12 @@ const team: TeamMember[] = [
     role: "Field Operations Coordinator",
     credential: "",
     photo: "/images/Maryam.jpeg",
+  },
+  {
+    name: "Mujahid Yahaya",
+    role: "Field Assistant",
+    credential: "",
+    initials: "MY",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function TeamSection() {
           The people behind the work.
         </motion.h2>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
           {team.map((member, i) => (
             <motion.div
               key={member.name}

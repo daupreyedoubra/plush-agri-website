@@ -56,7 +56,7 @@ export default function WhatWeDoSection() {
               >
                 <Link
                   href="/services"
-                  className="card group block h-full p-7 bg-sage-tint text-navy transition-[transform,box-shadow,background-color] duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] hover:-translate-y-[5px] hover:bg-sage hover:shadow-[0_16px_36px_rgba(22,54,92,0.18)] motion-reduce:hover:translate-y-0"
+                  className="card group block h-full p-7 bg-white border border-accent overflow-hidden transition-transform duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0"
                 >
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-olive/15 transition-colors duration-[250ms] ease-[cubic-bezier(0.25,0,0,1)] group-hover:bg-bright-green/20">
                     <Icon
@@ -64,7 +64,7 @@ export default function WhatWeDoSection() {
                       strokeWidth={1.75}
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">
+                  <h3 className="text-lg font-semibold mb-2 text-navy">
                     {service.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-gray-600">

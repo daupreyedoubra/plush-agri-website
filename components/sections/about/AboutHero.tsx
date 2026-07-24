@@ -7,13 +7,7 @@ const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 export default function AboutHero() {
   return (
-    <section
-      className="relative z-10 bg-navy pt-24 pb-24 lg:pt-32 lg:pb-36"
-      style={{
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 94%)",
-        marginBottom: "-4vw",
-      }}
-    >
+    <section className="relative z-10 bg-navy pt-24 pb-24 lg:pt-32 lg:pb-36">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Breadcrumb */}
         <motion.nav
@@ -48,8 +42,17 @@ export default function AboutHero() {
               animate={{ y: 0 }}
               transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
-              Credentialed expertise, meeting farmers where they actually work.
+              About Plush Agri Solutions
             </motion.h1>
+
+            <motion.p
+              className="text-bright-green text-lg lg:text-xl font-semibold mt-4"
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3, ease: EASE }}
+            >
+              Founded on field observation, not theory.
+            </motion.p>
           </div>
 
           {/* Intro paragraph */}

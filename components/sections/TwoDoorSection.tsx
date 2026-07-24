@@ -53,7 +53,10 @@ export default function TwoDoorSection() {
               Farm advisory, animal health support, and training. Hausa da
               English.
             </p>
-            <CtaButton href="https://wa.me/2348087702906" className="self-start">
+            <CtaButton
+              href="https://wa.me/2348087702906?text=Hello%2C%20can%20I%20speak%20with%20a%20Vet%3F"
+              className="self-start"
+            >
               WhatsApp a Vet
             </CtaButton>
           </motion.div>

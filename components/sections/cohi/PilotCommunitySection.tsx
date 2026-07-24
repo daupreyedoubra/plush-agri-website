@@ -6,12 +6,7 @@ import AnimatedMetric from "@/components/ui/AnimatedMetric";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
-const photoContainerVariants: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const photoItemVariants: Variants = {
+const photoVariants: Variants = {
   hidden: { opacity: 0, x: 32 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: [0.25, 0, 0, 1] } },
 };
@@ -29,11 +24,7 @@ const metrics = [
   { value: 7, prefix: "₦", suffix: "M", label: "project funds managed" },
 ];
 
-const photos = [
-  { src: "/images/cohi-school-05.jpeg", alt: "Plush Agri Solutions team with pupils and staff at a One Health education session in Danhonu 1" },
-  { src: "/images/_MG_2860.jpg", alt: "Community dialogue session with farmers in Danhonu 1" },
-  { src: "/images/_MG_2944.jpg", alt: "Plush Agri Solutions branded input handed to a farmer in Danhonu 1" },
-];
+const photo = { src: "/images/_MG_2860.jpg", alt: "Community dialogue session with farmers in Danhonu 1" };
 
 export default function PilotCommunitySection() {
   return (
@@ -75,27 +66,15 @@ export default function PilotCommunitySection() {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-6 grid grid-cols-2 gap-4"
-            variants={photoContainerVariants}
+            className="lg:col-span-6"
+            variants={photoVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <motion.div
-              variants={photoItemVariants}
-              className="relative card overflow-hidden row-span-2 aspect-[3/4]"
-            >
-              <Image src={photos[0].src} alt={photos[0].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </motion.div>
-            <motion.div
-              variants={photoItemVariants}
-              className="relative overflow-hidden aspect-square rounded-t-full shadow-[0_4px_24px_rgba(22,54,92,0.08)]"
-            >
-              <Image src={photos[1].src} alt={photos[1].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </motion.div>
-            <motion.div variants={photoItemVariants} className="relative card overflow-hidden aspect-square">
-              <Image src={photos[2].src} alt={photos[2].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-            </motion.div>
+            <div className="relative card overflow-hidden aspect-[4/3] lg:h-full">
+              <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+            </div>
           </motion.div>
         </div>
 
