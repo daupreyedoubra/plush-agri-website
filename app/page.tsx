@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
 import HowWeWorkSection from "@/components/sections/HowWeWorkSection";
+import BlogPreviewSection from "@/components/sections/BlogPreviewSection";
 import DanhonuPilotSection from "@/components/sections/DanhonuPilotSection";
 import TeamSection from "@/components/sections/TeamSection";
 import COHIBannerSection from "@/components/sections/COHIBannerSection";
@@ -30,6 +31,7 @@ export default function Home() {
       <ProblemSection />
       <WhatWeDoSection />
       <HowWeWorkSection />
+      <BlogPreviewSection />
       <DanhonuPilotSection />
       <TeamSection />
       <COHIBannerSection />

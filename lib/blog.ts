@@ -41,6 +41,7 @@ export const posts: BlogPost[] = [
       "The medicines we rely on to keep animals healthy only work if we use them carefully. Here is what antimicrobial resistance means for your farm, and the everyday habits that protect it.",
     author: AUTHOR,
     draft: false,
+    category: "Education",
     body: [
       {
         type: "p",
@@ -96,6 +97,7 @@ export const posts: BlogPost[] = [
       "For too long, a vet was someone you called only after an animal was already sick. The more useful model turns that around, and it starts with the ordinary routines of a healthy farm.",
     author: AUTHOR,
     draft: false,
+    category: "Veterinary Care",
     image: {
       src: "/images/_MG_2872.jpg",
       alt: "Farmers listening during a Plush Agri Solutions advisory session in Danhonu 1",
@@ -159,6 +161,7 @@ export const posts: BlogPost[] = [
       "When disease breaks out, the animals, the people, and the shared environment are all part of one story. One Health is a way of investigating that reads the whole picture instead of a single page.",
     author: AUTHOR,
     draft: false,
+    category: "One Health",
     image: {
       src: "/images/cohi-school-04.jpeg",
       alt: "Dr. Rukayyah Abdulsalam leading a One Health education session with schoolchildren in Danhonu 1",
