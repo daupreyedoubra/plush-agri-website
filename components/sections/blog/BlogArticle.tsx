@@ -5,8 +5,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { formatDate, type BlogPost } from "@/lib/blog";
+import LinkedInIcon from "@/components/ui/LinkedInIcon";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
+const RUKAYYAH_LINKEDIN =
+  "https://ng.linkedin.com/in/rukayyah-abdulsalam-124884117";
 
 const inView = {
   initial: { y: 20 },
@@ -135,7 +138,19 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-olive mb-1">
                 Written by
               </p>
-              <p className="text-base font-bold text-navy">{post.author}</p>
+              {post.author.includes("Rukayyah") ? (
+                <a
+                  href={RUKAYYAH_LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-base font-bold text-navy no-underline hover:text-[#5E8B3D] hover:underline transition-colors"
+                >
+                  {post.author}
+                  <LinkedInIcon className="w-3.5 h-3.5 flex-shrink-0" />
+                </a>
+              ) : (
+                <p className="text-base font-bold text-navy">{post.author}</p>
+              )}
               <p className="text-sm text-gray-500 mt-1 leading-relaxed">
                 Founder and principal consultant, Plush Agri Solutions. Kaduna
                 State, Northern Nigeria.

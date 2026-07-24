@@ -2,52 +2,48 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import LinkedInIcon from "@/components/ui/LinkedInIcon";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 interface TeamMember {
   name: string;
   role: string;
-  credential: string;
   photo?: string;
   initials?: string;
+  linkedin?: string;
 }
 
 const team: TeamMember[] = [
   {
     name: "Dr. Rukayyah Abdulsalam",
     role: "Founder & Lead Veterinarian",
-    credential: "DVM",
     photo: "/images/Rukkayah.jpeg",
+    linkedin: "https://ng.linkedin.com/in/rukayyah-abdulsalam-124884117",
   },
   {
     name: "Nafisah Abdulsalam",
     role: "COO",
-    credential: "B.Sc. Statistics",
     photo: "/images/Nafisah.jpeg",
   },
   {
     name: "Emmanuel Ochekpe",
     role: "Finance Officer",
-    credential: "B.Sc. Biological Sciences",
     photo: "/images/Emmanuel.jpeg",
   },
   {
     name: "Mujahid Yahaya",
     role: "Field Assistant",
-    credential: "",
     initials: "MY",
   },
   {
     name: "Doubra",
     role: "Brand and Communications Lead",
-    credential: "",
     photo: "/images/Doubra.png",
   },
   {
     name: "Maryam",
     role: "Field Operations Coordinator",
-    credential: "",
     photo: "/images/Maryam.jpeg",
   },
 ];
@@ -109,15 +105,22 @@ export default function TeamSection() {
                 </div>
 
                 <div className="p-5">
-                  <p className="text-base font-bold text-navy leading-snug">
-                    {member.name}
-                  </p>
-                  <p className="text-sm text-gray-600 mt-1">{member.role}</p>
-                  {member.credential && (
-                    <p className="text-xs text-gray-400 mt-1">
-                      {member.credential}
+                  {member.linkedin ? (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-base font-bold text-navy leading-snug no-underline hover:text-[#5E8B3D] hover:underline transition-colors"
+                    >
+                      {member.name}
+                      <LinkedInIcon className="w-3.5 h-3.5 flex-shrink-0" />
+                    </a>
+                  ) : (
+                    <p className="text-base font-bold text-navy leading-snug">
+                      {member.name}
                     </p>
                   )}
+                  <p className="text-sm text-gray-600 mt-1">{member.role}</p>
                 </div>
               </div>
             </motion.div>
