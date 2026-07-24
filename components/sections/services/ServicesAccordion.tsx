@@ -34,8 +34,8 @@ function AccordionItem({ service, isOpen, onToggle }: AccordionItemProps) {
           aria-controls={`${service.id}-panel`}
           className="w-full flex items-center justify-between gap-4 px-6 py-5 lg:px-8 lg:py-6 text-left transition-colors duration-200"
           style={{
-            backgroundColor: isOpen ? "var(--color-sage-tint)" : "var(--color-dark-green)",
-            color: isOpen ? "var(--color-dark-green)" : "var(--color-cream)",
+            backgroundColor: isOpen ? "#3D6E54" : "#1F4D36",
+            color: "#F6F2E8",
           }}
         >
           <span className="flex items-baseline gap-4 min-w-0">
@@ -160,7 +160,7 @@ function AccordionItem({ service, isOpen, onToggle }: AccordionItemProps) {
 }
 
 export default function ServicesAccordion({ services }: { services: Service[] }) {
-  const [openIds, setOpenIds] = useState<Set<string>>(new Set());
+  const [openId, setOpenId] = useState<string | null>(null);
   const hasSetDesktopDefault = useRef(false);
 
   // Desktop opens the first item by default; mobile starts fully collapsed.
@@ -170,18 +170,17 @@ export default function ServicesAccordion({ services }: { services: Service[] })
     if (hasSetDesktopDefault.current) return;
     hasSetDesktopDefault.current = true;
     if (window.matchMedia("(min-width: 1024px)").matches && services[0]) {
-      setOpenIds(new Set([services[0].id]));
+      setOpenId(services[0].id);
     }
   }, [services]);
 
-  // Anchor links from the "10 Services: jump to any" index above (and any
-  // direct URL entry with a #service-id hash) open the matching item and
-  // scroll it into view.
+  // Direct URL entry (or any external link) with a #service-id hash opens
+  // the matching item and scrolls it into view.
   useEffect(() => {
     const openFromHash = () => {
       const id = window.location.hash.slice(1);
       if (!id || !services.some((s) => s.id === id)) return;
-      setOpenIds((prev) => new Set(prev).add(id));
+      setOpenId(id);
       window.requestAnimationFrame(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
@@ -193,15 +192,7 @@ export default function ServicesAccordion({ services }: { services: Service[] })
   }, [services]);
 
   const toggle = (id: string) => {
-    setOpenIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
+    setOpenId((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -212,7 +203,7 @@ export default function ServicesAccordion({ services }: { services: Service[] })
             <AccordionItem
               key={service.id}
               service={service}
-              isOpen={openIds.has(service.id)}
+              isOpen={openId === service.id}
               onToggle={() => toggle(service.id)}
             />
           ))}

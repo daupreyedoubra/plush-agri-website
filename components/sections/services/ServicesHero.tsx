@@ -7,13 +7,7 @@ const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 export default function ServicesHero() {
   return (
-    <section
-      className="relative z-10 bg-navy pt-24 pb-24 lg:pt-32 lg:pb-36"
-      style={{
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 94%)",
-        marginBottom: "-4vw",
-      }}
-    >
+    <section className="relative z-10 bg-navy pt-24 pb-24 lg:pt-32 lg:pb-36">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Breadcrumb */}
         <motion.nav
@@ -47,9 +41,7 @@ export default function ServicesHero() {
               animate={{ y: 0 }}
               transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
-              Practical services.
-              <br />
-              Real farm outcomes.
+              This Is How We Serve You
             </motion.h1>
           </div>
 

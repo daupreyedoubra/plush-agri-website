@@ -35,7 +35,7 @@ export default function WhatCohiIsSection() {
         </motion.p>
 
         <motion.h2
-          className="text-navy text-3xl lg:text-4xl mb-14 max-w-2xl"
+          className="text-navy font-bold text-3xl lg:text-4xl mb-14 max-w-2xl"
           {...inView}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
