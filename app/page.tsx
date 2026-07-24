@@ -6,6 +6,7 @@ import HowWeWorkSection from "@/components/sections/HowWeWorkSection";
 import DanhonuPilotSection from "@/components/sections/DanhonuPilotSection";
 import TeamSection from "@/components/sections/TeamSection";
 import COHIBannerSection from "@/components/sections/COHIBannerSection";
+import BlogPreviewSection from "@/components/sections/BlogPreviewSection";
 import TwoDoorSection from "@/components/sections/TwoDoorSection";
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function Home() {
       <DanhonuPilotSection />
       <TeamSection />
       <COHIBannerSection />
+      <BlogPreviewSection />
       <TwoDoorSection />
     </>
   );

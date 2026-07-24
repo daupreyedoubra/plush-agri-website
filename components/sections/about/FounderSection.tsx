@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import LinkedInIcon from "@/components/ui/LinkedInIcon";
+
+const RUKAYYAH_LINKEDIN =
+  "https://ng.linkedin.com/in/rukayyah-abdulsalam-124884117";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
@@ -50,9 +54,15 @@ export default function FounderSection() {
             </div>
             {/* Caption */}
             <div className="mt-5 pl-1">
-              <p className="text-base font-bold text-navy">
+              <a
+                href={RUKAYYAH_LINKEDIN}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-base font-bold text-navy no-underline hover:text-[#5E8B3D] hover:underline transition-colors"
+              >
                 Dr. Rukayyah Abdulsalam
-              </p>
+                <LinkedInIcon className="w-3.5 h-3.5 flex-shrink-0" />
+              </a>
               <p className="text-sm text-gray-500 mt-1">
                 Veterinary Doctor &amp; Agricultural Consultant
               </p>
