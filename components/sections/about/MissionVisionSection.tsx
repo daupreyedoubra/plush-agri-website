@@ -6,7 +6,7 @@ const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const cardVariantsLeft: Variants = {
@@ -27,12 +27,6 @@ const cardVariantsRight: Variants = {
   },
 };
 
-const inView = {
-  initial: { y: 20 },
-  whileInView: { y: 0 },
-  viewport: { once: true as const },
-};
-
 export default function MissionVisionSection() {
   return (
     <section className="bg-sage-tint py-24 lg:py-32">
@@ -40,7 +34,9 @@ export default function MissionVisionSection() {
         {/* Section Label */}
         <motion.p
           className="label mb-6"
-          {...inView}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
         >
           Purpose
@@ -48,8 +44,10 @@ export default function MissionVisionSection() {
 
         <motion.h2
           className="text-3xl lg:text-4xl font-bold text-navy leading-[1.2] mb-14 lg:mb-16 max-w-xl"
-          {...inView}
-          transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
           What we are here to do.
         </motion.h2>

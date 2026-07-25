@@ -35,7 +35,7 @@ export default function ContactInfoSection() {
               {/* WhatsApp — most prominent */}
               <div>
                 <a
-                  href="https://wa.me/2348087702906?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20vet."
+                  href="https://wa.me/2348087702906?text=Hello%2C%20can%20I%20speak%20with%20a%20Vet%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-[#25D366] text-white font-semibold text-sm px-6 h-12 transition-opacity hover:opacity-90"

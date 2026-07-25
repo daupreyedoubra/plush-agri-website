@@ -47,6 +47,15 @@ export default function ServicesCTA() {
               {...inView}
               transition={{ duration: 0.6, delay: 0.25, ease: EASE }}
             >
+              <a
+                href="https://wa.me/2348087702906?text=Hello%2C%20can%20I%20speak%20with%20a%20Vet%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-btn inline-flex items-center justify-center bg-[#25D366] text-white font-semibold text-sm px-8 h-12 transition-opacity hover:opacity-90"
+                style={{ borderRadius: "999px" }}
+              >
+                WhatsApp a Vet
+              </a>
               <CtaButton href="/contact" variant="primary">
                 Talk to a Vet
               </CtaButton>

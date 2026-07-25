@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import LinkedInIcon from "@/components/ui/LinkedInIcon";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
+
+const RUKAYYAH_LINKEDIN = "https://ng.linkedin.com/in/rukayyah-abdulsalam-124884117";
 
 interface TeamMember {
   name: string;
@@ -36,7 +39,7 @@ const team: TeamMember[] = [
     name: "Mujahid Yahaya",
     role: "Field Assistant",
     credential: "",
-    initials: "MY",
+    photo: "/images/Mujahid.jpeg",
   },
   {
     name: "Doubra",
@@ -76,7 +79,7 @@ export default function TeamSection() {
           The people behind the work.
         </motion.h2>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
           {team.map((member, i) => (
             <motion.div
               key={member.name}
@@ -93,7 +96,7 @@ export default function TeamSection() {
                       alt={`${member.name}, ${member.role} at Plush Agri Solutions`}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 1024px) 50vw, 33vw"
                     />
                   ) : (
                     <div
@@ -110,7 +113,19 @@ export default function TeamSection() {
 
                 <div className="p-5">
                   <p className="text-base font-bold text-navy leading-snug">
-                    {member.name}
+                    {member.name === "Dr. Rukayyah Abdulsalam" ? (
+                      <a
+                        href={RUKAYYAH_LINKEDIN}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-navy transition-colors duration-200 hover:text-[#5E8B3D]"
+                      >
+                        {member.name}
+                        <LinkedInIcon className="w-3.5 h-3.5 shrink-0" />
+                      </a>
+                    ) : (
+                      member.name
+                    )}
                   </p>
                   <p className="text-sm text-gray-600 mt-1">{member.role}</p>
                   {member.credential && (

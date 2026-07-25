@@ -34,8 +34,8 @@ function AccordionItem({ service, isOpen, onToggle }: AccordionItemProps) {
           aria-controls={`${service.id}-panel`}
           className="w-full flex items-center justify-between gap-4 px-6 py-5 lg:px-8 lg:py-6 text-left transition-colors duration-200"
           style={{
-            backgroundColor: isOpen ? "var(--color-sage-tint)" : "var(--color-dark-green)",
-            color: isOpen ? "var(--color-dark-green)" : "var(--color-cream)",
+            backgroundColor: isOpen ? "#356B4E" : "#1F4D36",
+            color: "#F6F2E8",
           }}
         >
           <span className="flex items-baseline gap-4 min-w-0">

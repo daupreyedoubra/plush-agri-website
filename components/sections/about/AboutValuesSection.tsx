@@ -49,7 +49,7 @@ const values: {
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const itemVariants: Variants = {
@@ -61,12 +61,6 @@ const itemVariants: Variants = {
   },
 };
 
-const inView = {
-  initial: { y: 20 },
-  whileInView: { y: 0 },
-  viewport: { once: true as const },
-};
-
 export default function AboutValuesSection() {
   return (
     <section className="bg-navy py-24 lg:py-32">
@@ -74,7 +68,9 @@ export default function AboutValuesSection() {
         {/* Label */}
         <motion.p
           className="label !text-bright-green mb-6"
-          {...inView}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
         >
           Core Values
@@ -82,8 +78,10 @@ export default function AboutValuesSection() {
 
         <motion.h2
           className="text-3xl lg:text-4xl font-bold text-white leading-[1.2] mb-14 lg:mb-16 max-w-xl"
-          {...inView}
-          transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >
           Four values. Every decision.
         </motion.h2>
