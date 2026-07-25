@@ -21,6 +21,7 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://plushagrisolutions.com"),
   title: {
     default:
       "Plush Agri Solutions | Veterinary and Agricultural Advisory Services, Nigeria",

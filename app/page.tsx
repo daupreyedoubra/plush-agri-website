@@ -10,7 +10,7 @@ import COHIBannerSection from "@/components/sections/COHIBannerSection";
 import TwoDoorSection from "@/components/sections/TwoDoorSection";
 
 export const metadata: Metadata = {
-  title: "Plush Agri Solutions | Veterinary and Agricultural Advisory Services, Nigeria",
+  title: "Veterinary and Agricultural Advisory Services, Nigeria",
   description:
     "Plush Agri Solutions provides credentialed veterinary advisory services, livestock health support, and agricultural consulting to farmers across Northern Nigeria. Based in Kaduna State.",
   alternates: {

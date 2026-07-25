@@ -6,9 +6,12 @@ import PilotCommunitySection from "@/components/sections/cohi/PilotCommunitySect
 import PartnerCTASection from "@/components/sections/cohi/PartnerCTASection";
 
 export const metadata: Metadata = {
-  title: "Community One Health Initiative | Plush Agri Solutions",
+  title: "Community One Health Initiative",
   description:
     "COHI brings veterinary care into the community: dialogues, farm visits, a monthly farmers' forum, school-based education, awareness campaigns, and vaccination support, piloted in Danhonu 1, Chikun LGA.",
+  alternates: {
+    canonical: "https://plushagrisolutions.com/cohi",
+  },
   openGraph: {
     title: "Community One Health Initiative | Plush Agri Solutions",
     description:

@@ -5,9 +5,12 @@ import ContactInfoSection from "@/components/sections/contact/ContactInfoSection
 import ContactFormsSection from "@/components/sections/contact/ContactFormsSection";
 
 export const metadata: Metadata = {
-  title: "Contact | Plush Agri Solutions",
+  title: "Contact",
   description:
     "Reach Plush Agri Solutions for veterinary advice or farm consultancy. Call, WhatsApp, or send a message; we respond within 48 hours.",
+  alternates: {
+    canonical: "https://plushagrisolutions.com/contact",
+  },
   openGraph: {
     title: "Contact | Plush Agri Solutions",
     description:
