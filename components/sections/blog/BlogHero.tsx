@@ -41,7 +41,7 @@ export default function BlogHero() {
               animate={{ y: 0 }}
               transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
             >
-              Practical writing on
+              Practical writing on{" "}
               <br />
               animal health and farming.
             </motion.h1>

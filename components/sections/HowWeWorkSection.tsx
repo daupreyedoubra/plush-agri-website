@@ -13,7 +13,7 @@ const steps = [
 
 export default function HowWeWorkSection() {
   return (
-    <section className="bg-dark-green py-24 lg:py-32">
+    <section className="py-24 lg:py-32" style={{ backgroundColor: "#1F4D36" }}>
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
           className="label !text-bright-green mb-6"

@@ -62,13 +62,13 @@ const inView = {
 
 export default function ApproachSection() {
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="pt-12 lg:pt-16 pb-24 lg:pb-32" style={{ backgroundColor: "#163A70" }}>
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-        <motion.p className="label mb-6" {...inView} transition={{ duration: 0.5, ease: EASE }}>
+        <motion.p className="label !text-bright-green mb-6" {...inView} transition={{ duration: 0.5, ease: EASE }}>
           Our Approach
         </motion.p>
         <motion.h2
-          className="text-navy text-3xl lg:text-4xl mb-16 max-w-xl"
+          className="text-white text-3xl lg:text-4xl mb-16 max-w-xl"
           {...inView}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >

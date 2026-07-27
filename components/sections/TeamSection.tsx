@@ -128,7 +128,7 @@ export default function TeamSection() {
                     )}
                   </p>
                   <p className="text-sm text-gray-600 mt-1">{member.role}</p>
-                  {member.credential && (
+                  {i >= 3 && member.credential && (
                     <p className="text-xs text-gray-400 mt-1">
                       {member.credential}
                     </p>

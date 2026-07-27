@@ -27,6 +27,8 @@ export interface BlogPost {
   category?: string;
   /** Real field photo, only where one genuinely fits the subject. */
   image?: BlogImage;
+  /** Minutes to read. Set manually to override the word-count estimate. */
+  readTime?: number;
   body: Block[];
 }
 
@@ -349,6 +351,21 @@ const MONTHS = [
   "November",
   "December",
 ];
+
+const WORDS_PER_MINUTE = 200;
+
+/** Minutes to read: the post's own `readTime` if set, else estimated from
+ *  body word count at 200 wpm, rounded up, minimum 1. */
+export function getReadTime(post: BlogPost): number {
+  if (post.readTime) return post.readTime;
+
+  const wordCount = post.body.reduce(
+    (count, block) => count + block.text.trim().split(/\s+/).filter(Boolean).length,
+    0
+  );
+
+  return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+}
 
 export function formatDate(iso: string): string {
   const [year, month, day] = iso.split("-").map(Number);

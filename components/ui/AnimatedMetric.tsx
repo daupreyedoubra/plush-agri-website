@@ -13,6 +13,8 @@ interface AnimatedMetricProps {
   label: string;
   footnote?: string;
   size?: "lg" | "sm";
+  /** "dark" for placement on Field Authority green / navy backgrounds. */
+  theme?: "light" | "dark";
 }
 
 export default function AnimatedMetric({
@@ -22,10 +24,14 @@ export default function AnimatedMetric({
   label,
   footnote,
   size = "lg",
+  theme = "light",
 }: AnimatedMetricProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(0);
+  // Starts at the real value (not 0) so crawlers and anyone who never
+  // scrolls this into view see the correct number; the count-up effect
+  // below only replays it for visitors who actually watch it happen.
+  const [display, setDisplay] = useState(value);
   const [isInView, setIsInView] = useState(false);
 
   // Explicit IntersectionObserver rather than relying solely on a library
@@ -71,11 +77,16 @@ export default function AnimatedMetric({
   }, [isInView, value, reduceMotion]);
 
   const fontSize = size === "lg" ? "3rem" : "2rem";
+  const isDark = theme === "dark";
+
+  // No real number to show: hide the stat entirely rather than render
+  // "0" or a placeholder.
+  if (!value) return null;
 
   return (
     <div ref={ref}>
       <p
-        className={`num-tabular text-navy font-bold leading-none ${size === "lg" ? "font-heading" : ""}`}
+        className={`num-tabular font-bold leading-none ${isDark ? "text-white" : "text-navy"} ${size === "lg" ? "font-heading" : ""}`}
         style={{ fontSize }}
         aria-label={`${prefix}${value}${suffix} ${label}`}
       >
@@ -86,18 +97,28 @@ export default function AnimatedMetric({
         </span>
       </p>
       <motion.div
-        className={`h-[3px] w-10 bg-sage rounded-full origin-left ${size === "lg" ? "mt-3" : "mt-2"}`}
+        className={`h-[3px] w-10 rounded-full origin-left ${isDark ? "bg-bright-green" : "bg-sage"} ${size === "lg" ? "mt-3" : "mt-2"}`}
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: reduceMotion ? 0 : 1.4, ease: EASE }}
       />
       <p
-        className="text-gray-600 text-sm mt-2 tracking-wide"
-        style={size === "lg" ? { fontVariant: "small-caps" } : undefined}
+        className={`text-sm mt-2 tracking-wide ${isDark ? "" : "text-gray-600"}`}
+        style={{
+          ...(size === "lg" ? { fontVariant: "small-caps" } : {}),
+          ...(isDark ? { color: "#F6F2E8" } : {}),
+        }}
       >
         {label}
       </p>
-      {footnote && <p className="text-gray-400 text-xs mt-1">{footnote}</p>}
+      {footnote && (
+        <p
+          className={`text-xs mt-1 ${isDark ? "" : "text-gray-400"}`}
+          style={isDark ? { color: "rgba(246, 242, 232, 0.7)" } : undefined}
+        >
+          {footnote}
+        </p>
+      )}
     </div>
   );
 }

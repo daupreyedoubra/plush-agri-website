@@ -1,17 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { formatDate, getVisiblePosts } from "@/lib/blog";
+import { getReadTime, getVisiblePosts } from "@/lib/blog";
 
 const EASE = [0.25, 0, 0, 1] as [number, number, number, number];
-
-const EXCERPT_LIMIT = 120;
-
-function truncate(text: string, limit: number): string {
-  if (text.length <= limit) return text;
-  return `${text.slice(0, limit).trimEnd()}…`;
-}
 
 const containerVariants: Variants = {
   hidden: {},
@@ -68,32 +62,50 @@ export default function BlogPreviewSection() {
             <motion.article key={post.slug} variants={cardVariants} className="h-full">
               <Link
                 href={`/blog/${post.slug}`}
-                className="group flex h-full flex-col bg-white p-8"
+                className="group flex h-full flex-col bg-white overflow-hidden"
                 style={{ border: "1px solid #87A878" }}
               >
-                <p
-                  className="font-heading font-semibold text-xs uppercase tracking-[0.1em] mb-4"
-                  style={{ color: "#5E8B3D", fontVariant: "small-caps" }}
-                >
-                  {post.category ?? "Field Notes"}
-                </p>
-                <h3
-                  className="font-heading font-bold text-lg leading-snug mb-3"
-                  style={{ color: "#1F4D36" }}
-                >
-                  {post.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6 flex-1">
-                  {truncate(post.excerpt, EXCERPT_LIMIT)}
-                </p>
-                <span
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold mt-auto transition-opacity group-hover:opacity-70"
-                  style={{ color: "#5E8B3D" }}
-                >
-                  Read More
-                  <span aria-hidden="true">&rarr;</span>
-                </span>
-                <p className="mt-4 text-xs text-gray-400">{formatDate(post.date)}</p>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  {post.image ? (
+                    <Image
+                      src={post.image.src}
+                      alt={post.image.alt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full flex-col justify-between bg-navy p-6">
+                      <span className="text-xs font-bold tracking-[0.25em] uppercase text-bright-green">
+                        Field Notes
+                      </span>
+                      <span
+                        className="font-heading text-white/15 font-bold leading-none"
+                        style={{ fontSize: "3.5rem" }}
+                        aria-hidden="true"
+                      >
+                        PAS
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-1 flex-col p-8">
+                  <p className="text-xs text-gray-500 mb-3">
+                    {post.author}
+                    <span aria-hidden="true"> &middot; </span>
+                    {getReadTime(post)} min read
+                  </p>
+                  <h3
+                    className="font-heading font-bold text-lg leading-snug mb-3"
+                    style={{ color: "#1F4D36" }}
+                  >
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                </div>
               </Link>
             </motion.article>
           ))}

@@ -36,10 +36,10 @@ const photos = [
 
 export default function DanhonuPilotSection() {
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="py-24 lg:py-32" style={{ backgroundColor: "#1F4D36" }}>
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p
-          className="label mb-6"
+          className="label !text-bright-green mb-6"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true }}
@@ -49,7 +49,7 @@ export default function DanhonuPilotSection() {
         </motion.p>
 
         <motion.h2
-          className="text-navy font-bold text-3xl lg:text-4xl mb-14 max-w-xl"
+          className="text-white font-bold text-3xl lg:text-4xl mb-14 max-w-xl"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true }}
@@ -67,7 +67,11 @@ export default function DanhonuPilotSection() {
             transition={{ duration: 0.4, delay: 0.15, ease: EASE }}
           >
             {paragraphs.map((p) => (
-              <p key={p} className="text-gray-700 text-base leading-relaxed max-w-[65ch]">
+              <p
+                key={p}
+                className="text-base leading-relaxed max-w-[65ch]"
+                style={{ color: "#F6F2E8" }}
+              >
                 {p}
               </p>
             ))}
@@ -98,7 +102,7 @@ export default function DanhonuPilotSection() {
 
         {/* Metrics */}
         <motion.div
-          className="pt-12 border-t border-accent"
+          className="pt-12 border-t border-white/15"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true }}
@@ -113,6 +117,7 @@ export default function DanhonuPilotSection() {
                 suffix={m.suffix}
                 label={m.label}
                 size="lg"
+                theme="dark"
               />
             ))}
           </div>

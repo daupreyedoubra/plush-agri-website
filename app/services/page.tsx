@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { services } from "@/lib/services";
 import ServicesHero from "@/components/sections/services/ServicesHero";
+import ServicesTransitionBand from "@/components/sections/services/ServicesTransitionBand";
 import ServicesAccordion from "@/components/sections/services/ServicesAccordion";
 import ServicesCTA from "@/components/sections/services/ServicesCTA";
 
@@ -32,6 +33,7 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesHero />
+      <ServicesTransitionBand />
       <ServicesAccordion services={services} />
       <ServicesCTA />
     </>

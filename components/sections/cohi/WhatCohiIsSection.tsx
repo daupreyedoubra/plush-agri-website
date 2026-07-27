@@ -28,7 +28,7 @@ const paragraphs = [
 
 export default function WhatCohiIsSection() {
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-white pt-24 lg:pt-32 pb-12 lg:pb-16">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <motion.p className="label mb-6" {...inView} transition={{ duration: 0.5, ease: EASE }}>
           What COHI Is
