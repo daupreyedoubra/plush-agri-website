@@ -2,18 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronDown, Tractor, HeartPulse, ShieldCheck, Handshake, type LucideIcon } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import CtaButton from "@/components/ui/CtaButton";
 import type { Service } from "@/lib/services";
-
-// Services without a real field photo get an on-brand icon panel instead of
-// a stock image — never a placeholder photo.
-const FALLBACK_ICONS: Record<string, LucideIcon> = {
-  "farm-visits": Tractor,
-  "livestock-health-support": HeartPulse,
-  "biosecurity-advisory": ShieldCheck,
-  "development-programme-support": Handshake,
-};
 
 interface AccordionItemProps {
   service: Service;
@@ -22,8 +13,6 @@ interface AccordionItemProps {
 }
 
 function AccordionItem({ service, isOpen, onToggle }: AccordionItemProps) {
-  const FallbackIcon = FALLBACK_ICONS[service.id];
-
   return (
     <div id={service.id} className="scroll-mt-24 border-b border-accent last:border-b-0">
       <h3>
@@ -74,7 +63,7 @@ function AccordionItem({ service, isOpen, onToggle }: AccordionItemProps) {
         <div>
           <div className="bg-white px-6 py-8 lg:px-8 lg:py-10">
             <div className="lg:grid lg:grid-cols-12 lg:gap-10">
-              {/* Media: real field photo, or on-brand icon panel when none fits */}
+              {/* Media: real field photo for every service; number badge is a defensive fallback only */}
               <div className="lg:col-span-4 mb-8 lg:mb-0">
                 {service.image ? (
                   <div
@@ -93,11 +82,6 @@ function AccordionItem({ service, isOpen, onToggle }: AccordionItemProps) {
                   </div>
                 ) : (
                   <div className="card flex flex-col items-center justify-center gap-5 aspect-[4/3] lg:aspect-[3/4] bg-olive/10">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center bg-olive/15">
-                      {FallbackIcon && (
-                        <FallbackIcon className="w-6 h-6 text-olive" strokeWidth={1.75} />
-                      )}
-                    </div>
                     <span
                       className="text-xs font-bold tracking-[0.25em] uppercase text-olive/60"
                       aria-hidden="true"

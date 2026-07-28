@@ -63,7 +63,8 @@
       "Bash(echo \"---exit code: $?---\")",
       "Bash(echo \"tsc exit: $?\")",
       "Bash(powershell -Command \"\\(Invoke-WebRequest -Uri http://localhost:3000/partnerships -UseBasicParsing\\).StatusCode\")",
-      "Bash(grep -rln \"className=\\\\\"card\\\\|className={\\\\`.*\\\\bcard\\\\b\\\\|\\\\\"card \\\\|card group\\\\|card overflow\" \"/c/Users/HP/my-website/plush-agri-website/components\")"
+      "Bash(grep -rln \"className=\\\\\"card\\\\|className={\\\\`.*\\\\bcard\\\\b\\\\|\\\\\"card \\\\|card group\\\\|card overflow\" \"/c/Users/HP/my-website/plush-agri-website/components\")",
+      "PowerShell(Get-ChildItem -Path 'public/images' -Recurse -File | Select-Object FullName, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}} | Sort-Object FullName | Format-Table -AutoSize | Out-String -Width 300)"
     ]
   }
 }

@@ -47,6 +47,10 @@ export const services: Service[] = [
     number: "02",
     name: "Farm Visits",
     tagline: "Present on the farm. Accountable for the outcome.",
+    image: {
+      src: "/images/_MG_3083.jpg",
+      alt: "Plush Agri Solutions field officer conducting a farm visit with a livestock farmer in Danhonu 1, Chikun LGA, Kaduna State",
+    },
     problem:
       "Remote advisory services such as phone calls, pamphlets, and one-off workshops consistently fail smallholder farmers because they ignore the specific conditions of each farm. Generic advice applied to a specific situation often makes things worse.",
     approach:
@@ -63,6 +67,10 @@ export const services: Service[] = [
     number: "03",
     name: "Livestock Health Support",
     tagline: "Prevention built into the rhythm of the farm.",
+    image: {
+      src: "/images/_MG_3123.jpg",
+      alt: "Broiler chickens at feeders inside a poultry house under a Plush Agri Solutions livestock health programme in Danhonu 1",
+    },
     problem:
       "Infectious disease moves quickly through a herd. By the time a visible problem is identified, significant losses may already be unavoidable. Most farmers have no preventive health protocol in place.",
     approach:
@@ -99,6 +107,10 @@ export const services: Service[] = [
     number: "05",
     name: "Biosecurity Advisory",
     tagline: "Stopping disease before it enters the gate.",
+    image: {
+      src: "/images/_MG_2908.jpg",
+      alt: "Farmers attending a Plush Agri Solutions farm health and biosecurity awareness session in Danhonu 1, Chikun LGA",
+    },
     problem:
       "Poor biosecurity, from how animals are housed, to how new stock is introduced, to how visitors move through a farm, creates the conditions for disease to enter and spread. Most farmers have no formal protocol in place.",
     approach:
@@ -176,6 +188,10 @@ export const services: Service[] = [
     number: "09",
     name: "Development Programme Support",
     tagline: "A trusted technical partner with genuine community access.",
+    image: {
+      src: "/images/_MG_2964.jpg",
+      alt: "Plush Agri Solutions field officer presenting programme documentation at the official Farm Health and Biosecurity Awareness Campaign launch in Danhonu 1",
+    },
     problem:
       "NGOs, government agencies, and international organisations working in agricultural development frequently struggle to find technical partners with verified community access, credentialed expertise, and a functioning M&E framework.",
     approach:
