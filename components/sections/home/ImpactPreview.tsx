@@ -4,29 +4,7 @@ import support from "@/public/images/field/farmer-support.jpg";
 import trainer from "@/public/images/field/trainer-session.jpg";
 import CtaButton from "@/components/ui/CtaButton";
 import Reveal from "@/components/ui/Reveal";
-
-const figures = [
-  { value: 14, label: "Farmers under advisory" },
-  { value: 27, label: "Farmers trained" },
-  { value: 10, label: "Farm visits completed" },
-  { value: 4, label: "Farmers who adopted recommended practices" },
-  { value: 3, label: "Farmers who received follow-up support" },
-];
-
-const changes = [
-  {
-    title: "Training and Practice Adoption",
-    body: "Farmers applied lessons from our training, with observable changes in farm hygiene, waste management and biosecurity practices.",
-  },
-  {
-    title: "Veterinary Advisory",
-    body: "We provided practical guidance on animal health, vaccination planning, breeding, flock management and disease prevention to help farmers make better decisions about their farms.",
-  },
-  {
-    title: "Farm Visits and Follow-up",
-    body: "Farm visits helped identify management gaps, provide relevant recommendations and monitor their implementation.",
-  },
-];
+import { impactFigures as figures, impactChanges as changes } from "@/lib/impact";
 
 export default function ImpactPreview() {
   return (

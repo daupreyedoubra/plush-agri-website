@@ -3,11 +3,13 @@ import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "Our Services" },
+  { href: "/products", label: "Products & Supplies" },
+  { href: "/impact", label: "Projects & Impact" },
   { href: "/cohi", label: "COHI" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/blog", label: "Resources & Blog" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export default function Footer() {

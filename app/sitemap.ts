@@ -39,6 +39,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${BASE_URL}/products`,
+      lastModified: new Date("2026-11-12"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/impact`,
+      lastModified: new Date("2026-11-12"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/cohi`,
       lastModified: LAST_MODIFIED,
       changeFrequency: "monthly",

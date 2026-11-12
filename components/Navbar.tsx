@@ -8,12 +8,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import CtaButton from "@/components/ui/CtaButton";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/cohi", label: "COHI" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", full: "Home" },
+  { href: "/about", label: "About", full: "About Us" },
+  { href: "/services", label: "Services", full: "Our Services" },
+  { href: "/products", label: "Products", full: "Products & Supplies" },
+  { href: "/impact", label: "Impact", full: "Projects & Impact" },
+  { href: "/cohi", label: "COHI", full: "COHI" },
+  { href: "/blog", label: "Resources", full: "Resources & Blog" },
+  { href: "/contact", label: "Contact", full: "Contact Us" },
 ];
 
 export default function Navbar() {
@@ -55,7 +57,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden xl:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -69,12 +71,12 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <CtaButton href="/#partner">Partner With Us</CtaButton>
+          <CtaButton href="/contact">Partner With Us</CtaButton>
         </div>
 
         {/* Mobile Hamburger */}
         <button
-          className="lg:hidden p-2 -mr-2 relative z-[60]"
+          className="xl:hidden p-2 -mr-2 relative z-[60]"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
@@ -109,7 +111,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="lg:hidden fixed inset-x-0 top-20 z-[9999] bg-dark-green overflow-y-auto mobile-menu-overlay"
+            className="xl:hidden fixed inset-x-0 top-20 z-[9999] bg-dark-green overflow-y-auto mobile-menu-overlay"
           >
             <div className="px-6 py-8 flex flex-col gap-1 min-h-full">
               {navLinks.map((link) => (
@@ -122,10 +124,10 @@ export default function Navbar() {
                       : "text-cream/85 font-medium hover:text-white"
                   }`}
                 >
-                  {link.label}
+                  {link.full}
                 </Link>
               ))}
-              <CtaButton href="/#partner" className="mt-6 w-full">
+              <CtaButton href="/contact" className="mt-6 w-full">
                 Partner With Us
               </CtaButton>
             </div>
