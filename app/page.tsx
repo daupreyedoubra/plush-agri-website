@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import HeroSection from "@/components/sections/HeroSection";
-import ProblemSection from "@/components/sections/ProblemSection";
-import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
-import HowWeWorkSection from "@/components/sections/HowWeWorkSection";
-import BlogPreviewSection from "@/components/sections/BlogPreviewSection";
-import DanhonuPilotSection from "@/components/sections/DanhonuPilotSection";
-import TeamSection from "@/components/sections/TeamSection";
-import COHIBannerSection from "@/components/sections/COHIBannerSection";
-import TwoDoorSection from "@/components/sections/TwoDoorSection";
+import HomeHero from "@/components/sections/home/HomeHero";
+import WhoWeAre from "@/components/sections/home/WhoWeAre";
+import ServicesPreview from "@/components/sections/home/ServicesPreview";
+import HowWeWork from "@/components/sections/home/HowWeWork";
+import ImpactPreview from "@/components/sections/home/ImpactPreview";
+import Partners from "@/components/sections/home/Partners";
+import FinalCta from "@/components/sections/home/FinalCta";
 
 export const metadata: Metadata = {
   title: "Veterinary and Agricultural Advisory Services, Nigeria",
   description:
-    "Plush Agri Solutions provides credentialed veterinary advisory services, livestock health support, and agricultural consulting to farmers across Northern Nigeria. Based in Kaduna State.",
+    "Plush Agri Solutions provides veterinary services, livestock health advisory and practical farm support to farmers, cooperatives and agribusinesses in Kaduna State, Nigeria.",
   alternates: {
     canonical: "https://plushagrisolutions.com",
   },
@@ -27,15 +25,13 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <ProblemSection />
-      <WhatWeDoSection />
-      <HowWeWorkSection />
-      <BlogPreviewSection />
-      <DanhonuPilotSection />
-      <TeamSection />
-      <COHIBannerSection />
-      <TwoDoorSection />
+      <HomeHero />
+      <WhoWeAre />
+      <ServicesPreview />
+      <HowWeWork />
+      <ImpactPreview />
+      <Partners />
+      <FinalCta />
     </>
   );
 }
