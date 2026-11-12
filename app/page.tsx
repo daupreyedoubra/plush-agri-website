@@ -5,6 +5,7 @@ import ServicesPreview from "@/components/sections/home/ServicesPreview";
 import HowWeWork from "@/components/sections/home/HowWeWork";
 import ImpactPreview from "@/components/sections/home/ImpactPreview";
 import Partners from "@/components/sections/home/Partners";
+import ResourcesPreview from "@/components/sections/home/ResourcesPreview";
 import FinalCta from "@/components/sections/home/FinalCta";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function Home() {
       <HowWeWork />
       <ImpactPreview />
       <Partners />
+      <ResourcesPreview />
       <FinalCta />
     </>
   );

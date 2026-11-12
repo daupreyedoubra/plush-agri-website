@@ -43,6 +43,11 @@ export const posts: BlogPost[] = [
       "The medicines we rely on to keep animals healthy only work if we use them carefully. Here is what antimicrobial resistance means for your farm, and the everyday habits that protect it.",
     author: AUTHOR,
     draft: false,
+    category: "Animal Health Resources",
+    image: {
+      src: "/images/field/supplies-shown.jpg",
+      alt: "A farmer holding up an animal health product pack at a Plush Agri Solutions session",
+    },
     body: [
       {
         type: "p",
@@ -99,9 +104,10 @@ export const posts: BlogPost[] = [
     author: AUTHOR,
     draft: false,
     image: {
-      src: "/images/_MG_2872.jpg",
+      src: "/images/field/farmer-smiling.jpg",
       alt: "Farmers listening during a Plush Agri Solutions advisory session in Danhonu 1",
     },
+    category: "Field Notes",
     body: [
       {
         type: "p",
@@ -165,6 +171,7 @@ export const posts: BlogPost[] = [
       src: "/images/cohi-school-04.jpeg",
       alt: "Dr. Rukayyah Abdulsalam leading a One Health education session with schoolchildren in Danhonu 1",
     },
+    category: "Field Notes",
     body: [
       {
         type: "p",
@@ -220,7 +227,7 @@ export const posts: BlogPost[] = [
       "Antimicrobial resistance is one of the fastest-growing threats to both animal and human health globally. Here is what it means for your farm and what you can do about it.",
     author: AUTHOR,
     draft: false,
-    category: "Education",
+    category: "Animal Health Resources",
     body: [
       {
         type: "p",
@@ -264,7 +271,11 @@ export const posts: BlogPost[] = [
       "Preventing disease on a poultry farm does not require expensive equipment. These five steps can be started immediately with what you already have.",
     author: AUTHOR,
     draft: false,
-    category: "Practical Tips",
+    category: "Farm Guides",
+    image: {
+      src: "/images/field/kit-handover.jpg",
+      alt: "A Plush Agri Solutions trainer handing farm health materials to farmers",
+    },
     body: [
       {
         type: "p",
@@ -321,6 +332,25 @@ export const posts: BlogPost[] = [
 /** In production, drafts are hidden. In development they stay visible so the
  *  page and grid can be reviewed before launch. */
 const showDrafts = process.env.NODE_ENV !== "production";
+
+/** The three content categories set by the founder (Nov 2026). */
+export const blogCategories = [
+  {
+    name: "Field Notes",
+    description:
+      "Articles, insights and lessons from our work with farmers and livestock communities.",
+  },
+  {
+    name: "Farm Guides",
+    description:
+      "Practical guides and tips farmers can use to improve their farms.",
+  },
+  {
+    name: "Animal Health Resources",
+    description:
+      "Useful information on animal diseases, vaccination, prevention and responsible use of veterinary medicines.",
+  },
+];
 
 export function getVisiblePosts(): BlogPost[] {
   return posts

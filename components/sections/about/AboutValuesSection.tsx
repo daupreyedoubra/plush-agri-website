@@ -53,9 +53,8 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, x: -28 },
+  hidden: { x: -28 },
   visible: {
-    opacity: 1,
     x: 0,
     transition: { duration: 0.6, ease: [0.25, 0, 0, 1] },
   },
@@ -68,8 +67,8 @@ export default function AboutValuesSection() {
         {/* Label */}
         <motion.p
           className="label !text-bright-green mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
         >
@@ -78,8 +77,8 @@ export default function AboutValuesSection() {
 
         <motion.h2
           className="text-3xl lg:text-4xl font-bold text-white leading-[1.2] mb-14 lg:mb-16 max-w-xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
         >

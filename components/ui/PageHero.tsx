@@ -20,7 +20,7 @@ export default function PageHero({
   crumb: string;
   label: string;
   title: string;
-  intro: string;
+  intro?: string;
   photo?: StaticImageData;
   photoAlt?: string;
   photoPosition?: string;
@@ -41,10 +41,12 @@ export default function PageHero({
             <span className="text-white font-medium">{crumb}</span>
           </nav>
           <p className="label !text-bright-green mb-6">{label}</p>
-          <h1 className="text-white mb-6 max-w-2xl">{title}</h1>
-          <p className="text-cream/85 text-lg leading-relaxed max-w-xl">
-            {intro}
-          </p>
+          <h1 className="text-white mb-6 max-w-2xl last:mb-0">{title}</h1>
+          {intro && (
+            <p className="text-cream/85 text-lg leading-relaxed max-w-xl">
+              {intro}
+            </p>
+          )}
           {children && <div className="mt-10 flex flex-wrap gap-4">{children}</div>}
         </div>
       </div>

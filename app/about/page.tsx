@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import AboutHero from "@/components/sections/about/AboutHero";
-import FoundingStorySection from "@/components/sections/about/FoundingStorySection";
-import MissionVisionSection from "@/components/sections/about/MissionVisionSection";
+import AboutIntro from "@/components/sections/about/AboutIntro";
 import AboutValuesSection from "@/components/sections/about/AboutValuesSection";
 import FounderSection from "@/components/sections/about/FounderSection";
 import TeamSection from "@/components/sections/TeamSection";
 import AboutCTASection from "@/components/sections/about/AboutCTASection";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us",
   description:
-    "Learn about Plush Agri Solutions, founded by Dr. Rukayyah Abdulsalam to deliver credentialed veterinary and agricultural advisory services to farmers across Northern Nigeria.",
+    "Plush Agri Solutions is a veterinary and agricultural solutions business based in Kaduna State, founded by Dr. Rukayyah Abdulsalam to bring practical support to farmers at the farm gate.",
   alternates: {
     canonical: "https://plushagrisolutions.com/about",
   },
@@ -25,9 +23,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <AboutHero />
-      <FoundingStorySection />
-      <MissionVisionSection />
+      <AboutIntro />
       <AboutValuesSection />
       <FounderSection />
       <TeamSection />
