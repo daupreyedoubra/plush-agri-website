@@ -34,7 +34,7 @@ export default function TwoDoorSection() {
               deliver community One Health programmes in Kaduna State.
             </p>
             <div className="flex flex-col items-start gap-4">
-              <CtaButton href="mailto:plushagrisolutions@gmail.com">
+              <CtaButton href="mailto:info@plushagrisolutions.com">
                 Email Us
               </CtaButton>
             </div>

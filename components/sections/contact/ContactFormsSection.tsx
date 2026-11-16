@@ -31,7 +31,7 @@ function SuccessCard({ message }: { message: string }) {
 // ─── General Inquiry Form ──────────────────────────────────────────────────
 type GeneralData = { name: string; email: string; phone?: string; message: string; company?: string };
 
-const DEFAULT_ERROR = "Form temporarily down — email plushagrisolutions@gmail.com or WhatsApp 08087702906.";
+const DEFAULT_ERROR = "Form temporarily down — email info@plushagrisolutions.com or WhatsApp 08087702906.";
 
 function GeneralForm() {
   const [submitted, setSubmitted] = useState(false);

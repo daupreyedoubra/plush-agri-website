@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const DOWN_MESSAGE =
-  "Form temporarily down — email plushagrisolutions@gmail.com or WhatsApp 08087702906.";
+  "Form temporarily down — email info@plushagrisolutions.com or WhatsApp 08087702906.";
 
 // Basic in-memory rate limit. Resets on cold start and isn't shared across
 // serverless instances, but stops the obvious repeat-submit / script case.
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   const ip = getClientIp(req);
   if (isRateLimited(ip)) {
     return NextResponse.json(
-      { error: "Too many submissions. Please try again later, or email plushagrisolutions@gmail.com directly." },
+      { error: "Too many submissions. Please try again later, or email info@plushagrisolutions.com directly." },
       { status: 429 }
     );
   }

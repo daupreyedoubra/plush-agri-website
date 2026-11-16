@@ -48,7 +48,7 @@ export default function PartnerCTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2, ease: EASE }}
         >
-          <CtaButton href="mailto:plushagrisolutions@gmail.com">
+          <CtaButton href="mailto:partnerships@plushagrisolutions.com">
             Partner With Us
           </CtaButton>
           <a

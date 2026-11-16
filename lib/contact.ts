@@ -20,5 +20,6 @@ export const WHATSAPP_SUPPORT_URL = wa(
 
 export const PARTNERSHIPS_EMAIL = "partnerships@plushagrisolutions.com";
 export const RECRUITMENT_EMAIL = "recruitment@plushagrisolutions.com";
+export const GENERAL_EMAIL = "info@plushagrisolutions.com";
 export const PARTNERSHIPS_MAILTO = `mailto:${PARTNERSHIPS_EMAIL}?subject=${encodeURIComponent("Partnership enquiry")}`;
 export const RECRUITMENT_MAILTO = `mailto:${RECRUITMENT_EMAIL}?subject=${encodeURIComponent("Expression of interest")}`;

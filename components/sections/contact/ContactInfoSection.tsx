@@ -70,8 +70,8 @@ export default function ContactInfoSection() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold tracking-wide uppercase text-primary mb-1">Email</p>
-                  <a href="mailto:plushagrisolutions@gmail.com" className="text-base text-gray-700 hover:text-primary transition-colors break-all">
-                    plushagrisolutions@gmail.com
+                  <a href="mailto:info@plushagrisolutions.com" className="text-base text-gray-700 hover:text-primary transition-colors break-all">
+                    info@plushagrisolutions.com
                   </a>
                 </div>
                 <div>

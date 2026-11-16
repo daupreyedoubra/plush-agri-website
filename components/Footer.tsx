@@ -62,10 +62,10 @@ export default function Footer() {
               <li>GF11 Nakadi Plaza, Millennium City, Kaduna State</li>
               <li>
                 <a
-                  href="mailto:plushagrisolutions@gmail.com"
+                  href="mailto:info@plushagrisolutions.com"
                   className="hover:text-white transition-colors"
                 >
-                  plushagrisolutions@gmail.com
+                  info@plushagrisolutions.com
                 </a>
               </li>
               <li>
