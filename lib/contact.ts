@@ -13,3 +13,12 @@ export const whatsappEnquiryUrl = (item: string) =>
 export const WHATSAPP_PRODUCTS_URL = wa(
   "Hello, I would like to enquire about your products and supplies."
 );
+
+export const WHATSAPP_SUPPORT_URL = wa(
+  "Hello, I would like to make an enquiry and request support."
+);
+
+export const PARTNERSHIPS_EMAIL = "partnerships@plushagrisolutions.com";
+export const RECRUITMENT_EMAIL = "recruitment@plushagrisolutions.com";
+export const PARTNERSHIPS_MAILTO = `mailto:${PARTNERSHIPS_EMAIL}?subject=${encodeURIComponent("Partnership enquiry")}`;
+export const RECRUITMENT_MAILTO = `mailto:${RECRUITMENT_EMAIL}?subject=${encodeURIComponent("Expression of interest")}`;

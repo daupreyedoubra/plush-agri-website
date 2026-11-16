@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { services } from "@/lib/services";
-import ServicesHero from "@/components/sections/services/ServicesHero";
-import ServicesTransitionBand from "@/components/sections/services/ServicesTransitionBand";
-import ServicesAccordion from "@/components/sections/services/ServicesAccordion";
-import ServicesCTA from "@/components/sections/services/ServicesCTA";
+import heroPhoto from "@/public/images/field/trainer-session.jpg";
+import PageHero from "@/components/ui/PageHero";
+import CtaButton from "@/components/ui/CtaButton";
+import ServiceList from "@/components/sections/services/ServiceList";
+import FinalCta from "@/components/sections/home/FinalCta";
+import { WHATSAPP_VET_URL } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Our Services",
   description:
-    "Plush Agri Solutions offers ten practical services: Veterinary Advisory, Farm Visits, Biosecurity, Farmer Training, and Capacity Building. Serving farmers across Northern Nigeria.",
+    "Veterinary services and farm visits, livestock health and biosecurity, farm management and advisory, agricultural inputs and supplies, training, and partnerships from Plush Agri Solutions in Kaduna State.",
   alternates: {
     canonical: "https://plushagrisolutions.com/services",
   },
@@ -22,20 +23,28 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     url: "https://plushagrisolutions.com/services",
-    title:
-      "Services | Plush Agri Solutions | Veterinary and Agricultural Advisory, Nigeria",
+    title: "Our Services | Plush Agri Solutions",
     description:
-      "Ten practical, field-tested services for farmers across Northern Nigeria. Veterinary advisory, livestock health, farm visits, training, biosecurity and more.",
+      "Veterinary services, livestock health and biosecurity, farm advisory, agricultural inputs, training and partnerships for farmers in Kaduna State.",
   },
 };
 
 export default function ServicesPage() {
   return (
-    <>
-      <ServicesHero />
-      <ServicesTransitionBand />
-      <ServicesAccordion services={services} />
-      <ServicesCTA />
-    </>
+    <main>
+      <PageHero
+        crumb="Our Services"
+        label="Our Services"
+        title="Practical support at every stage of production."
+        intro="At Plush Agri Solutions, we provide practical support to guide farmers at every stage of their production journey."
+        photo={heroPhoto}
+        photoAlt="A Plush Agri Solutions trainer speaking with farmers during a session"
+        photoPosition="object-[center_30%]"
+      >
+        <CtaButton href={WHATSAPP_VET_URL}>Talk to a Vet</CtaButton>
+      </PageHero>
+      <ServiceList />
+      <FinalCta />
+    </main>
   );
 }
