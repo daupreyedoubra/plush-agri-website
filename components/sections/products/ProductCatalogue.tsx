@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { productCategories } from "@/lib/products";
 import { whatsappEnquiryUrl } from "@/lib/contact";
 import Reveal from "@/components/ui/Reveal";
 
-const BACKGROUNDS = ["bg-cream", "bg-white", "bg-sage-tint"];
+const BACKGROUNDS = ["bg-cream", "bg-white"];
 
 export default function ProductCatalogue() {
   return (
@@ -17,60 +16,53 @@ export default function ProductCatalogue() {
         >
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8 grid gap-10 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-4">
-              <p className="font-heading font-bold text-olive text-5xl leading-none mb-6">
-                {category.letter}
+              <p className="font-heading font-bold text-olive text-5xl leading-none mb-6 num-tabular">
+                0{i + 1}
               </p>
-              <h2 className="text-navy text-2xl lg:text-[2rem] max-w-xs">
+              <h2 className="text-navy text-2xl lg:text-[2rem] leading-[1.2] max-w-xs">
                 {category.title}
               </h2>
             </Reveal>
 
-            <ul className="lg:col-span-8 grid gap-4 sm:grid-cols-2">
-              {category.products.map((product, j) => (
-                <li key={product.name}>
-                  <Reveal delay={j * 0.05} className="h-full">
-                    <a
-                      href={whatsappEnquiryUrl(product.name)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex h-full flex-col rounded-2xl bg-navy/[0.05] overflow-hidden transition-colors duration-200 hover:bg-navy hover:text-white"
-                    >
-                      {product.image && (
-                        <div className="relative aspect-[4/3]">
-                          <Image
-                            src={product.image}
-                            alt={product.name}
-                            fill
-                            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-                            className="object-cover"
-                            placeholder="blur"
-                          />
-                        </div>
-                      )}
-                      <div className="flex flex-1 flex-col justify-between gap-8 p-7">
-                        <div>
-                          <h3 className="text-navy text-lg font-semibold leading-snug group-hover:text-white transition-colors duration-200">
-                            {product.name}
-                          </h3>
-                          {product.description && (
-                            <p className="mt-3 text-[0.95rem] leading-relaxed text-gray-700 group-hover:text-white/80 transition-colors duration-200">
-                              {product.description}
-                            </p>
-                          )}
-                        </div>
-                        <span className="inline-flex items-center gap-2 font-heading text-sm font-semibold text-dark-green group-hover:text-bright-green transition-colors duration-200">
-                          Enquire on WhatsApp
-                          <ArrowUpRight
-                            className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                            strokeWidth={2.25}
-                          />
-                        </span>
-                      </div>
-                    </a>
-                  </Reveal>
-                </li>
+            <div className="lg:col-span-8 space-y-14">
+              {category.groups.map((group, g) => (
+                <Reveal key={group.title ?? g} delay={0.06 + g * 0.06}>
+                  {group.title && (
+                    <h3 className="label mb-5">{group.title}</h3>
+                  )}
+                  <ul className="border-b-2 border-navy/15">
+                    {group.products.map((product) => (
+                      <li key={product.name}>
+                        <a
+                          href={whatsappEnquiryUrl(product.name.toLowerCase())}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-start justify-between gap-6 border-t-2 border-navy/15 py-6"
+                        >
+                          <span className="block">
+                            <span className="block font-heading font-semibold text-navy text-lg leading-snug group-hover:text-olive transition-colors duration-200">
+                              {product.name}
+                            </span>
+                            {product.description && (
+                              <span className="mt-2 block text-gray-700 leading-relaxed max-w-[52ch]">
+                                {product.description}
+                              </span>
+                            )}
+                          </span>
+                          <span className="mt-1 inline-flex shrink-0 items-center gap-2 font-heading text-sm font-semibold text-dark-green">
+                            <span className="hidden sm:inline">Enquire</span>
+                            <ArrowUpRight
+                              className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                              strokeWidth={2.25}
+                            />
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
               ))}
-            </ul>
+            </div>
           </div>
         </section>
       ))}
